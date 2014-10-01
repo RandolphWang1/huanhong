@@ -1,0 +1,30 @@
+CC = /usr/local/arm/2.95.3/bin/arm-linux-gcc
+CFLAGS= -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc
+
+TARGET1 = SDK
+TARGET2 = lcd
+TARGET3 = printer
+TARGET4 = icc
+TARGET5 = kbd
+TARGET6 = magcard
+TARGET7 = control
+
+D620D_test:InitPos.o Main.o Param.o CommTest.o KbdTest.o LcdTest.o \
+	PrinterTest.o ModemTest.o GprsTest.o EthernetTest.o CardReaderTest.o \
+	PinpadTest.o JingZhenTest.o Function.o OtherTest.o
+
+	$(CC) $^ -o $@ -L ../lib -l$(TARGET1) -l$(TARGET2) \
+-l$(TARGET3)  -l$(TARGET4) -l$(TARGET5) -l$(TARGET6) -l$(TARGET7)
+	
+	chmod +x D620D_test
+	mv ./D620D_test ./D620D/D620D
+	tar zcvf D620D.tar.gz D620D/D620D local.sh
+	mv ./D620D.tar.gz ../
+	rm -f *.o *bak
+
+%.o:%.c
+	$(CC) $(CFLAGS) -c -Wall $< -o $@
+
+clean:
+	rm -f *.o *bak
+

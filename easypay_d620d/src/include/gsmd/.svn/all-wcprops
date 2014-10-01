@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/!svn/ver/4897/trunk/src/target/gsm/include/gsmd
+END
+ts0705.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/1529/trunk/src/target/gsm/include/gsmd/ts0705.h
+END
+sms.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/!svn/ver/3807/trunk/src/target/gsm/include/gsmd/sms.h
+END
+ts0707.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/1530/trunk/src/target/gsm/include/gsmd/ts0707.h
+END
+vendorplugin.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/3807/trunk/src/target/gsm/include/gsmd/vendorplugin.h
+END
+talloc.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/1316/trunk/src/target/gsm/include/gsmd/talloc.h
+END
+select.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/120/trunk/src/target/gsm/include/gsmd/select.h
+END
+state.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/4115/trunk/src/target/gsm/include/gsmd/state.h
+END
+event.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/3647/trunk/src/target/gsm/include/gsmd/event.h
+END
+unsolicited.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/!svn/ver/3807/trunk/src/target/gsm/include/gsmd/unsolicited.h
+END
+machineplugin.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/!svn/ver/4215/trunk/src/target/gsm/include/gsmd/machineplugin.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/3518/trunk/src/target/gsm/include/gsmd/Makefile.am
+END
+usock.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/4174/trunk/src/target/gsm/include/gsmd/usock.h
+END
+strl.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4060/trunk/src/target/gsm/include/gsmd/strl.h
+END
+extrsp.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/4060/trunk/src/target/gsm/include/gsmd/extrsp.h
+END
+atcmd.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/!svn/ver/3447/trunk/src/target/gsm/include/gsmd/atcmd.h
+END
+gsmd.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/!svn/ver/4897/trunk/src/target/gsm/include/gsmd/gsmd.h
+END

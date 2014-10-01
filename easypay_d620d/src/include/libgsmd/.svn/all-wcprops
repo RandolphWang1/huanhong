@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/!svn/ver/4216/trunk/src/target/gsm/include/libgsmd
+END
+event.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/114/trunk/src/target/gsm/include/libgsmd/event.h
+END
+libgsmd.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/!svn/ver/3546/trunk/src/target/gsm/include/libgsmd/libgsmd.h
+END
+voicecall.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/3760/trunk/src/target/gsm/include/libgsmd/voicecall.h
+END
+sms.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/3758/trunk/src/target/gsm/include/libgsmd/sms.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/2737/trunk/src/target/gsm/include/libgsmd/Makefile.am
+END
+phonebook.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/!svn/ver/4162/trunk/src/target/gsm/include/libgsmd/phonebook.h
+END
+handset.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/!svn/ver/40/trunk/src/target/gsm/include/libgsmd/handset.h
+END
+pin.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/!svn/ver/3636/trunk/src/target/gsm/include/libgsmd/pin.h
+END
+misc.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/!svn/ver/4216/trunk/src/target/gsm/include/libgsmd/misc.h
+END
