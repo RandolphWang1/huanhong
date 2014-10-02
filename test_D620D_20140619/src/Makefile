@@ -18,7 +18,7 @@ D620D_test:InitPos.o Main.o Param.o CommTest.o KbdTest.o LcdTest.o \
 #PSE.o
 	
 	$(CC) $^ -o $@ -L ../lib -l$(TARGET1) -l$(TARGET2) \
--l$(TARGET3)  -l$(TARGET4) -l$(TARGET5) -l$(TARGET6) -l$(TARGET7) -l$(TARGET8) -lm -lcurl -lexpat
+-l$(TARGET3)  -l$(TARGET4) -l$(TARGET5) -l$(TARGET6) -l$(TARGET7) -l$(TARGET8) -lm -lcurl -lexpat -pthread
 	
 	chmod +x D620D_test
 	mv ./D620D_test ./D620D/D620D

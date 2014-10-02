@@ -1,0 +1,31 @@
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall CommTest.c -o CommTest.o
+CommTest.c: In function `SetCommParam':
+CommTest.c:871: warning: implicit declaration of function `wait'
+CommTest.c:854: warning: unused variable `handle'
+CommTest.c:506: warning: unused variable `ret'
+CommTest.c: In function `SetMoney':
+CommTest.c:988: warning: implicit declaration of function `Moneyformat'
+CommTest.c:990: warning: implicit declaration of function `print_logo'
+CommTest.c:1002: warning: implicit declaration of function `printTail'
+CommTest.c:974: warning: unused variable `tempDataNum'
+CommTest.c:972: warning: unused variable `buffshow'
+CommTest.c: At top level:
+CommTest.c:1021: warning: type mismatch with previous implicit declaration
+CommTest.c:988: warning: previous implicit declaration of `Moneyformat'
+CommTest.c:1021: warning: `Moneyformat' was previously implicitly declared to return `int'
+CommTest.c:1041: warning: type mismatch with previous implicit declaration
+CommTest.c:1002: warning: previous implicit declaration of `printTail'
+CommTest.c:1041: warning: `printTail' was previously implicitly declared to return `int'
+CommTest.c:1096: warning: type mismatch with previous implicit declaration
+CommTest.c:990: warning: previous implicit declaration of `print_logo'
+CommTest.c:1096: warning: `print_logo' was previously implicitly declared to return `int'
+CommTest.c: In function `thr_fn':
+CommTest.c:1292: `ret' undeclared (first use in this function)
+CommTest.c:1292: (Each undeclared identifier is reported only once
+CommTest.c:1292: for each function it appears in.)
+CommTest.c: At top level:
+CommTest.c:34: warning: `SetModem' defined but not used
+CommTest.c:183: warning: `SetGPRS' defined but not used
+CommTest.c:258: warning: `SetCDMA' defined but not used
+CommTest.c:333: warning: `SetEthernet' defined but not used
+make: *** [CommTest.o] Error 1
