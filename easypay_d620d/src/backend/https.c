@@ -106,7 +106,7 @@ int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int 
             memcpy(query_result->qr_string,stqrcode,strlen(stqrcode));
             printf("the qr_result is %s\n, the stqrcode is %s\n",query_result->qr_string,stqrcode);
             }
-            memset(stqrcode,0,1024);
+            memset(stqrcode,0,QRLEN);
             memcpy(query_result->time_mark,timemark,strlen(timemark));
         }
 

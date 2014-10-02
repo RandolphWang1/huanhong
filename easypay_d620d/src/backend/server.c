@@ -21,8 +21,8 @@ void payment_alarm_handler(int sig) {
     struct qr_result payquery_result;
     int nbytes;
     int socket_fd;
-    strcpy(qrpay_info.imsi,"460006922139942");
-    memset(payquery_result.qr_string,0,1024);
+    //strcpy(qrpay_info.imsi,"460006922139942");
+    memset(payquery_result.qr_string,0,QRLEN);
     memset(payquery_result.time_mark,0,32);
 #if 1
     if (time_mark[0] == '\0'){
@@ -68,21 +68,21 @@ void payment_alarm_handler(int sig) {
         alarm(10);
         return ;
     }
-    
+
     nbytes = strlen(payquery_result.qr_string);
     write(socket_fd, payquery_result.qr_string, nbytes);
     close(socket_fd);
     }
     if(strlen(payquery_result.qr_string)&&strstr(payquery_result.qr_string, "TRADE_SUCCESS")){
-    printf("the online qrcode payment successful\n");
+        printf("the online qrcode payment successful\n");
     }
     else{   
-    printf("the online qrcode payment failed\n");
+        printf("the online qrcode payment failed\n");
 #if 0
-    int pos_fd = get_posfd();
-    write(pos_fd,"\n",1);
-    write(pos_fd, "TRADE_FAILURE\n",14);
-    write(pos_fd,"\n",1);
+        int pos_fd = get_posfd();
+        write(pos_fd,"\n",1);
+        write(pos_fd, "TRADE_FAILURE\n",14);
+        write(pos_fd,"\n",1);
     write(pos_fd,"\n",1);
     write(pos_fd,"\n",1);
 #endif
@@ -112,6 +112,36 @@ int connection_handler(int connection_fd)
 
 int main(void)
 {
+    FILE *fp;
+    int i;
+    char buffer[30] = {0};
+    char pos_imsi[20] = {0};
+    if (pos_imsi[0] == '\0'){
+        /* get imsi from config.tx */
+        fp = fopen("/usr/local/config.txt","r");
+        if(fp == NULL)
+        {
+            printf("couldn't open config.txt\n");
+            return;
+        }
+        if( fgets(buffer, 30, fp) == NULL )
+        {
+            printf("Error reading config\n");
+            fclose(fp);
+            return ;
+        }
+        for (i=0; i<30; i++) {
+            if(buffer[i] == '\n') {
+                buffer[i] = '\0';
+                break;
+            }
+        }
+        fclose(fp);
+        /* copy after IMSI: */
+        strcpy(pos_imsi,&buffer[5]);
+        printf("the pos imsi buffer string is %s\n",pos_imsi);
+    }
+    strcpy(qrpay_info.imsi,pos_imsi);
     /* timer to get alipay payment response -- sample code */ 
     signal(SIGALRM, payment_alarm_handler);
     alarm(10);

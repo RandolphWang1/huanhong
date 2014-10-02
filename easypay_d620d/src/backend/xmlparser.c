@@ -29,7 +29,8 @@
  */
 
 #include "xmlparser.h"
-char stqrcode[1024]={0};
+#include "aliqr.h"
+char stqrcode[QRLEN]={0};
 char timemark[32]={0};
 
 void startElement(void *userData, const XML_Char *name, const XML_Char **atts)

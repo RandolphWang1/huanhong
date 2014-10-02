@@ -19,9 +19,9 @@ struct payInfo {
     char *total_fee;
 #endif
 }; 
-
+#define QRLEN 102400
 struct qr_result {
-char qr_string[1024];
+char qr_string[QRLEN];
 char time_mark[32];
 };
 
