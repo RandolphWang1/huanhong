@@ -102,6 +102,7 @@ void PrintMsg(char *Msg);
 void ClearClient();
 void ScanBarCode();
 int CommTest();
+void SetCommParam();
 void CDMACommTest();
 int SMS_Demo();
 int SNSet();

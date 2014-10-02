@@ -6,6 +6,16 @@
 #include <stdarg.h>
 
 BOOL iScanHandle;
+#define ALIPAY_QUERY 1
+#ifdef ALIPAY_QUERY
+#include <sys/socket.h>
+#include <sys/un.h>
+#include <sys/types.h>
+#include "aliqr.h"
+int socket_fd;
+struct sockaddr_un address;
+#endif
+
 
 int _strcmp(char *str1,char *str2)
 {
@@ -60,7 +70,6 @@ int main()
         int nRetAttach = 0;
 	//int k = 10;
 
-			
 	//初始化硬件
     	if(InitPOS() != OK)  
 		return 0;
@@ -68,7 +77,7 @@ int main()
 	DebugOut("D620D_01功能测试程序\n");
 
 	Clear();
-
+#if 0
 	TextOut(0, 3, ALIGN_CENTER, "POS功能测试");
 	TextOut(0, 5, ALIGN_CENTER, "test app for D620D_01");
 	TextOut(0, 7, ALIGN_CENTER, APP_VERSION);
@@ -486,15 +495,88 @@ START_QUECTEL_GPRS_INIT:
 				}
         }
 
+#endif
 	//启动状态栏
 	CreateStatusBar(WHITE);
 	OpenStatusBar();
 
 FUNC:
+#ifdef ALIPAY_QUERY
+    socket_fd = socket(PF_UNIX, SOCK_STREAM, 0);
+    if(socket_fd < 0)
+    {
+        printf("socket() failed\n");
+        return 1;
+    }
+
+    unlink("/tmp/demo_socket");
+
+    /* start from a clean socket structure */
+    memset(&address, 0, sizeof(struct sockaddr_un));
+
+    address.sun_family = AF_UNIX;
+    snprintf(address.sun_path, 20/*UNIX_PATH_MAX*/, "/tmp/demo_socket");
+
+    if(bind(socket_fd,
+         (struct sockaddr *) &address,
+         sizeof(struct sockaddr_un)) != 0)
+    {
+        printf("bind() failed\n");
+        return 1;
+    }
+
+    if(listen(socket_fd, 5) != 0)
+    {
+        printf("listen() failed\n");
+        return 1;
+    }
+#endif
+
 	ClearKbd();
 	display_y = 10;
+        while(1)
+        {
+                printf("$$$$Main inside while loop$$$\n");
+                                SetCommParam();
+#if 0
+		Clear();
+
+		SetScrFont(FONT20, WHITE);
+		//标题
+		//ShowBmpFile(0, 25, "pic/title.bmp");
+		TextOutByPixel(90, display_y, "盈润捷通");
+
+		ShowBmpFile(175, display_y+65, "pic/button.bmp");
+		TextOutByPixel(185, display_y+70, "4.通讯");
+
+		// 1,2,3,4,5,6,7,8,9,0,F1,F2
+		//ucKey = WaitLimitKey("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0D", 12, 0);
+		ucKey = WaitLimitKey("\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0A\x0D", 12, 0);
+		if(ucKey < 0)
+			continue;
+		memset(sKeyName, 0, sizeof(sKeyName));
+		GetKeyName(ucKey, sKeyName);
+		DebugOut("press key: %s\n", sKeyName);
+		switch(ucKey)
+		{
+			case KEY_0:
+			    Clear(); 
+				TextOut(0, 3, ALIGN_CENTER, "是否关机?");
+				TextOut(0, 4, ALIGN_CENTER, "1.是   其他键.否");
+			    if(WaitKey(0) == KEY_1)
+					ShutDown();
+				break;
+			case KEY_4:
+				//CommTest();
+                                SetCommParam();
+				break;
+                }
+#endif
+        }
+#if 0
 	while(1)
 	{
+                printf("$$$$Main inside while loop$$$\n");
 		Clear();
 
 		SetScrFont(FONT20, WHITE);
@@ -609,6 +691,7 @@ FUNC:
 				break;
 		}
 	}
+#endif
 }
 
 

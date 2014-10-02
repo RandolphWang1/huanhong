@@ -14,7 +14,7 @@ D620D_test:InitPos.o Main.o Param.o CommTest.o KbdTest.o LcdTest.o \
 	PrinterTest.o ModemTest.o GprsTest.o EthernetTest.o CardReaderTest.o \
 	PinpadTest.o JingZhenTest.o Function.o OtherTest.o IdentifyReader.o	\
 	unicode.o Sms.o FM17XX.o ReadCardNo.o Epp.o WifiTest.o ProcCard.o \
-        md5.o xmlparser.o https.o aliqr.o qrgenerator.o
+        md5.o xmlparser.o https.o aliqr.o statement.o qrgenerator.o
 #PSE.o
 	
 	$(CC) $^ -o $@ -L ../lib -l$(TARGET1) -l$(TARGET2) \

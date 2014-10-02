@@ -130,6 +130,7 @@ INT InitPOS(void)
 		DebugOut("非接初始化成功!\n");
 	}
 	*/
+#if 0
 	//初始化扫描头
 	switch_CTSRTS(0);   //CTS/RTS暂无别的模块使用.初始化执行一次即可.
 	
@@ -169,6 +170,7 @@ INT InitPOS(void)
 	{
 		iScanHandle=FALSE;
 	}
+#endif
 	SetScrFont(FONT20, WHITE);
 	Clear();
 	//读取配置文件
