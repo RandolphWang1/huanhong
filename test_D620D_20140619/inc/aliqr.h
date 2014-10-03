@@ -21,7 +21,7 @@ struct payInfo {
 }; 
 
 struct qr_result {
-    char qr_string[1024];
+    char qr_string[10240];
     char time_mark[32];
 };
 
