@@ -1009,10 +1009,10 @@ int SetMoney()
     SetScrFont(FONT20, WHITE);
     //TextOut(2, 4, ALIGN_CENTER, "input money OK!");
     TextOut(2, 4, ALIGN_CENTER, "稍等，正在输出二维码...");
-    sprintf(zh_string,"  NO:%lld",query_number);
+    sprintf(zh_string,"  序列号:%lld",query_number);
     printTail(buff);
     pthread_mutex_unlock(&prmutex);
-    WaitKey(2000);
+    WaitKey(1000);
     return OK;
 
 FAILED:
@@ -1020,8 +1020,10 @@ FAILED:
     SetScrFont(FONT20, WHITE);
     if(ret == -1)
         TextOut(2, 6, ALIGN_CENTER, "error input");
-    else if (ret == -3)
-        TextOut(2, 6, ALIGN_CENTER, "cancel");
+    else if (ret == -3) {
+        //TextOut(2, 6, ALIGN_CENTER, "cancel");
+        return ERROR;
+    }
     else 
         TextOut(2, 6, ALIGN_CENTER, "unknow");
     WaitKey(2000);
@@ -1363,12 +1365,13 @@ void queryNo(void)
     char queryNo[18] = {0};
     int ret = 0;
     Clear();
-    TextOut(0, 2, ALIGN_LEFT, "请输入交易单序列号的后6位");
+    TextOut(0, 2, ALIGN_LEFT, "请输入交易单上序列号的后6位");
+    TextOut(0, 3, ALIGN_LEFT, "查询当日交易");
     getSNoPre(prefix);
     printf("queryNO prefixint:\n");   
     printf("queryNO prefix:%s \n", prefix);   
     //sprintf(prefix, "%lld\0", prefixint);
-    TextOut(0, 3, ALIGN_LEFT, prefix);
+    TextOut(0, 5, ALIGN_LEFT, prefix);
     ret = Input(11,3,hmno,6,IME_NUMBER,WHITE, RED,FALSE,TRUE,FALSE);
     if(ret != OK)
         return;
@@ -1391,7 +1394,9 @@ void queryNo(void)
         memset(PrintBuff,0,30);
         SetPrintIndent(100);
         SetPrintFont(32);
-        strcpy(PrintBuff,"以下序列号交易已成功: ");
+        strcpy(PrintBuff,"以下交易确已成功");
+        FillPrintBuff(PrintBuff);
+        strcpy(PrintBuff,"序列号:");
         FillPrintBuff(PrintBuff);
         strcpy(PrintBuff,queryNo);
         FillPrintBuff(PrintBuff);	   
