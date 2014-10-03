@@ -97,9 +97,9 @@ int  generator_qrcode_to_bmp(int out, char* price)
     return 0;
 }
 
-unsigned long long getSNoPre(char* prefix_str)
+//user don't need to input imsi and year month date, but hour,minutes,and serial no is needed,
+void getSNoPre(char* prefix_str)
 {
-    unsigned long long prefix = 0;
     T_DATETIME tTime;
     char ticket_number[13]={0};
     char client_number[21]={0};
@@ -107,19 +107,14 @@ unsigned long long getSNoPre(char* prefix_str)
     GetDateTime(&tTime);
     memset(ticket_number, 0, 13);
     memset(client_number, 0, 21);
-    if(prefix == 0) {
-        sprintf(ticket_number,"%s%s%s\0",
-                tTime.year, tTime.month, tTime.day);
-        /* use last 6-bit of IMSI */
-        strncpy(client_number, &(qrpay_info.imsi[10]), 6);
-        strcat(client_number, ticket_number);
-        memcpy(prefix_str, client_number,strlen(client_number));
-        prefix = (unsigned long long)atoll(client_number);
-        printf("ticket_number:%s, client_number:%s, prefix:%lld\n",
-                ticket_number, client_number, prefix);
-    }
-        printf("exit getSNoPre:%lld\n", prefix);
-    return prefix;
+    sprintf(ticket_number,"%s%s%s\0",
+            tTime.year, tTime.month, tTime.day);
+    /* use last 6-bit of IMSI */
+    strncpy(client_number, &(qrpay_info.imsi[10]), 6);
+    strcat(client_number, ticket_number);
+    memcpy(prefix_str, client_number,strlen(client_number));
+    printf("ticket_number:%s, client_number:%s, prefix:%s\n",
+            ticket_number, client_number, prefix_str);
 }
 
 void getIMSIconfig()

@@ -982,11 +982,9 @@ int SetMoney()
     int ret;
     char buff[128] = "";
     char buffshow[128] = "";
-    char zh_string[50];
     int tempDataNum;
 
     memset(buff, 0, sizeof(buff));
-    memset(zh_string, 0, sizeof(zh_string));
     Clear();
     SetScrFont(FONT20, WHITE);
     TextOut(0, 2, ALIGN_CENTER, "请输入金额");
@@ -1009,7 +1007,6 @@ int SetMoney()
     SetScrFont(FONT20, WHITE);
     //TextOut(2, 4, ALIGN_CENTER, "input money OK!");
     TextOut(2, 4, ALIGN_CENTER, "稍等，正在输出二维码...");
-    sprintf(zh_string,"  序列号:%lld",query_number);
     printTail(buff);
     pthread_mutex_unlock(&prmutex);
     WaitKey(1000);
@@ -1061,7 +1058,7 @@ START_PRINT:
     ClearPrintBuff();
     SetPrintIndent(0);
     SetPrintFont(32);
-    sprintf(printBuff,"  NO:%lld",query_number);
+    sprintf(printBuff,"序列号:%lld",query_number);
     FillPrintBuff(printBuff);
     PrintEmptyLine(1);
     SetPrintIndent(0);
