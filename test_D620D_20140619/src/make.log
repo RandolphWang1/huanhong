@@ -1,31 +1,118 @@
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall InitPos.c -o InitPos.o
+InitPos.c: In function `InitPOS':
+InitPos.c:8: warning: unused variable `ckey'
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall Main.c -o Main.o
+Main.c: In function `main':
+Main.c:70: warning: unused variable `nRetAttach'
+Main.c:69: warning: unused variable `j'
+Main.c:68: warning: unused variable `mobile_flag'
+Main.c:67: warning: unused variable `ret'
+Main.c:66: warning: unused variable `szTmp'
+Main.c:65: warning: unused variable `szBuff'
+Main.c:64: warning: unused variable `GprsFlag'
+Main.c:62: warning: unused variable `nRet'
+Main.c:61: warning: unused variable `sKeyName'
+Main.c:59: warning: unused variable `ucKey'
+Main.c:58: warning: unused variable `i'
+Main.c:505: warning: label `FUNC' defined but not used
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall Param.c -o Param.o
 /usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall CommTest.c -o CommTest.o
 CommTest.c: In function `SetCommParam':
-CommTest.c:871: warning: implicit declaration of function `wait'
-CommTest.c:854: warning: unused variable `handle'
-CommTest.c:506: warning: unused variable `ret'
+CommTest.c:882: warning: implicit declaration of function `wait'
+CommTest.c:865: warning: unused variable `handle'
+CommTest.c:511: warning: unused variable `ret'
 CommTest.c: In function `SetMoney':
-CommTest.c:988: warning: implicit declaration of function `Moneyformat'
-CommTest.c:990: warning: implicit declaration of function `print_logo'
-CommTest.c:1002: warning: implicit declaration of function `printTail'
-CommTest.c:974: warning: unused variable `tempDataNum'
-CommTest.c:972: warning: unused variable `buffshow'
+CommTest.c:984: warning: unused variable `tempDataNum'
+CommTest.c:982: warning: unused variable `buffshow'
+CommTest.c: In function `queryNo':
+CommTest.c:1359: warning: int format, different type arg (arg 2)
+CommTest.c:1360: warning: embedded `\0' in format
+CommTest.c:1361: warning: int format, different type arg (arg 2)
 CommTest.c: At top level:
-CommTest.c:1021: warning: type mismatch with previous implicit declaration
-CommTest.c:988: warning: previous implicit declaration of `Moneyformat'
-CommTest.c:1021: warning: `Moneyformat' was previously implicitly declared to return `int'
-CommTest.c:1041: warning: type mismatch with previous implicit declaration
-CommTest.c:1002: warning: previous implicit declaration of `printTail'
-CommTest.c:1041: warning: `printTail' was previously implicitly declared to return `int'
-CommTest.c:1096: warning: type mismatch with previous implicit declaration
-CommTest.c:990: warning: previous implicit declaration of `print_logo'
-CommTest.c:1096: warning: `print_logo' was previously implicitly declared to return `int'
-CommTest.c: In function `thr_fn':
-CommTest.c:1292: `ret' undeclared (first use in this function)
-CommTest.c:1292: (Each undeclared identifier is reported only once
-CommTest.c:1292: for each function it appears in.)
-CommTest.c: At top level:
-CommTest.c:34: warning: `SetModem' defined but not used
-CommTest.c:183: warning: `SetGPRS' defined but not used
-CommTest.c:258: warning: `SetCDMA' defined but not used
-CommTest.c:333: warning: `SetEthernet' defined but not used
-make: *** [CommTest.o] Error 1
+CommTest.c:39: warning: `SetModem' defined but not used
+CommTest.c:188: warning: `SetGPRS' defined but not used
+CommTest.c:263: warning: `SetCDMA' defined but not used
+CommTest.c:338: warning: `SetEthernet' defined but not used
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall KbdTest.c -o KbdTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall LcdTest.c -o LcdTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall PrinterTest.c -o PrinterTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall ModemTest.c -o ModemTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall GprsTest.c -o GprsTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall EthernetTest.c -o EthernetTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall CardReaderTest.c -o CardReaderTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall PinpadTest.c -o PinpadTest.o
+PinpadTest.c: In function `SetKey':
+PinpadTest.c:148: warning: implicit declaration of function `PINPAD_SetMasterKey'
+PinpadTest.c:189: warning: implicit declaration of function `PINPAD_SetWorkKey'
+PinpadTest.c: In function `PinpadHYTest':
+PinpadTest.c:901: warning: implicit declaration of function `PINPAD_ChkStatus'
+PinpadTest.c:904: warning: implicit declaration of function `PINPAD_ResetLCD'
+PinpadTest.c:906: warning: implicit declaration of function `PINPAD_DisplayBalance'
+PinpadTest.c:908: warning: implicit declaration of function `PINPAD_ConfirmAmount'
+PinpadTest.c:909: warning: too many arguments for format
+PinpadTest.c:917: warning: implicit declaration of function `PINPAD_GetDesMode'
+PinpadTest.c:922: warning: implicit declaration of function `PINPAD_ResetPinpad'
+PinpadTest.c:940: warning: implicit declaration of function `PINPAD_ActiateKey'
+PinpadTest.c:947: warning: implicit declaration of function `PINPAD_Encrypt'
+PinpadTest.c:953: warning: implicit declaration of function `PINPAD_CalcPinBlock'
+PinpadTest.c:963: warning: implicit declaration of function `PINPAD_CalcMAC'
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall JingZhenTest.c -o JingZhenTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall Function.c -o Function.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall OtherTest.c -o OtherTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall IdentifyReader.c -o IdentifyReader.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall unicode.c -o unicode.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall Sms.c -o Sms.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall FM17XX.c -o FM17XX.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall ReadCardNo.c -o ReadCardNo.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall Epp.c -o Epp.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall WifiTest.c -o WifiTest.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall ProcCard.c -o ProcCard.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall md5.c -o md5.o
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall xmlparser.c -o xmlparser.o
+xmlparser.c: In function `endElement':
+xmlparser.c:72: warning: long unsigned int format, size_t arg (arg 2)
+xmlparser.c:72: warning: long unsigned int format, size_t arg (arg 3)
+xmlparser.c: In function `endElement1':
+xmlparser.c:83: warning: long unsigned int format, size_t arg (arg 2)
+xmlparser.c:83: warning: long unsigned int format, size_t arg (arg 3)
+xmlparser.c: In function `endElement2':
+xmlparser.c:97: warning: long unsigned int format, size_t arg (arg 2)
+xmlparser.c:97: warning: long unsigned int format, size_t arg (arg 3)
+xmlparser.c:101: warning: long unsigned int format, size_t arg (arg 2)
+xmlparser.c:101: warning: long unsigned int format, size_t arg (arg 3)
+xmlparser.c: In function `endElement3':
+xmlparser.c:112: warning: long unsigned int format, size_t arg (arg 2)
+xmlparser.c:112: warning: long unsigned int format, size_t arg (arg 3)
+xmlparser.c: In function `parseStreamCallback':
+xmlparser.c:126: warning: long unsigned int format, size_t arg (arg 3)
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall https.c -o https.o
+https.c: In function `alipay_main':
+https.c:103: warning: long unsigned int format, size_t arg (arg 2)
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall aliqr.c -o aliqr.o
+aliqr.c: In function `alipay_precreate':
+aliqr.c:95: warning: control reaches end of non-void function
+aliqr.c: At top level:
+aliqr.c:11: warning: `partner' defined but not used
+aliqr.c:12: warning: `key' defined but not used
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall statement.c -o statement.o
+statement.c: In function `WritePayment':
+statement.c:122: warning: implicit declaration of function `write'
+statement.c:112: warning: unused variable `cmd1'
+statement.c:109: warning: unused variable `low'
+statement.c:109: warning: unused variable `high'
+/usr/local/arm/2.95.3/bin/arm-linux-gcc -I/YF2410/kernel/include -I../inc/sys -I../inc/SDKInc -I../inc -c -Wall qrgenerator.c -o qrgenerator.o
+qrgenerator.c: In function `generator_qrcode_to_bmp':
+qrgenerator.c:86: warning: passing arg 1 of `alipay_main' from incompatible pointer type
+qrgenerator.c:18: warning: unused variable `enc_mode'
+qrgenerator.c: In function `alipay_query_serialno':
+qrgenerator.c:164: warning: passing arg 1 of `alipay_main' from incompatible pointer type
+qrgenerator.c:166: warning: control reaches end of non-void function
+/usr/local/arm/2.95.3/bin/arm-linux-gcc InitPos.o Main.o Param.o CommTest.o KbdTest.o LcdTest.o PrinterTest.o ModemTest.o GprsTest.o EthernetTest.o CardReaderTest.o PinpadTest.o JingZhenTest.o Function.o OtherTest.o IdentifyReader.o unicode.o Sms.o FM17XX.o ReadCardNo.o Epp.o WifiTest.o ProcCard.o md5.o xmlparser.o https.o aliqr.o statement.o qrgenerator.o -o D620D_test -L ../lib -lSDK -llcd \
+-lprinter  -licc -lkbd -lmagcard -larmd8linux -lcontrol -lm -lcurl -lexpat -pthread
+chmod +x D620D_test
+mv ./D620D_test ./D620D/D620D
+#tar zcvf D620D.tar.gz D620D/D620D D620D/tms
+tar zcvf D620D.tar.gz D620D/D620D
+D620D/D620D
+mv ./D620D.tar.gz ../
+rm -f *.o *bak

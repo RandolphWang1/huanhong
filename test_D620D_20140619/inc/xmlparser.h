@@ -57,5 +57,6 @@ void characterDataHandler(void *userData, const XML_Char *s, int len);
 void endElement(void *userData, const XML_Char *name);
 void endElement1(void *userData, const XML_Char *name);
 void endElement2(void *userData, const XML_Char *name);
+void endElement3(void *userData, const XML_Char *name);
 
 size_t parseStreamCallback(void *contents, size_t length, size_t nmemb, void *userp);

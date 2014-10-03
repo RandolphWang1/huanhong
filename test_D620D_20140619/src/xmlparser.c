@@ -29,7 +29,7 @@
  */
 
 #include "xmlparser.h"
-char stqrcode[1024]={0};
+char stqrcode[10240]={0};
 char timemark[32]={0};
 
 void startElement(void *userData, const XML_Char *name, const XML_Char **atts)
@@ -75,15 +75,16 @@ void endElement(void *userData, const XML_Char *name)
 
 void endElement1(void *userData, const XML_Char *name)
 {
-  struct ParserStruct *state = (struct ParserStruct *) userData;
-  state->depth--;
-  if( strcmp(name,"response") == 0){
-      if(strstr(state->characters.memory, "TRADE_SUCCESS")) {
-      memcpy(stqrcode,state->characters.memory,state->characters.size);
-      printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
-      }
-   else
-      strcpy(stqrcode,"TRADE_FAILURE");
+    struct ParserStruct *state = (struct ParserStruct *) userData;
+    state->depth--;
+    if( strcmp(name,"response") == 0){
+        if(strstr(state->characters.memory, "TRADE_SUCCESS")) {
+            memset(stqrcode,0, sizeof(stqrcode));
+            memcpy(stqrcode,state->characters.memory,state->characters.size);
+            printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }
+        else
+            strcpy(stqrcode,"TRADE_FAILURE");
   }
 }
 
@@ -97,11 +98,27 @@ void endElement2(void *userData, const XML_Char *name)
       printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
   }
   if( strcmp(name,"order") == 0){
+      memset(stqrcode,0, sizeof(stqrcode));
       memcpy(stqrcode,state->characters.memory,state->characters.size);
       printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
   }
 }
 #endif
+
+void endElement3(void *userData, const XML_Char *name)
+{
+    struct ParserStruct *state = (struct ParserStruct *) userData;
+    state->depth--;
+    if(strcmp(name,"result") == 0){
+        if(state->characters.memory != NULL&&strstr(state->characters.memory, "TRADE_SUCCESS")) { 
+            memset(stqrcode,0, sizeof(stqrcode));
+            memcpy(stqrcode,state->characters.memory,state->characters.size);
+            printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }else {
+            strcpy(stqrcode,"TRADE_FAILURE");
+        }
+    }
+}
 
 size_t parseStreamCallback(void *contents, size_t length, size_t nmemb, void *userp)
 {

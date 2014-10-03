@@ -21,16 +21,16 @@ struct payInfo {
 }; 
 
 struct qr_result {
-char qr_string[1024];
-char time_mark[32];
+    char qr_string[1024];
+    char time_mark[32];
 };
 
 struct receipt_info {
-char serial_number[24];
-char out_trade_no[16];
-char trade_no[32];
-char trade_status[16];
-char total_fee[16];
+    char serial_number[24];
+    char out_trade_no[16];
+    char trade_no[32];
+    char trade_status[16];
+    char total_fee[16];
 };
 
 /* single query parameters for multi payment results */
@@ -40,7 +40,13 @@ struct queryInfo {
 };
 //int alipay_precreate(char* precr, int* len, struct payInfo* order_info);
 enum precreate_type {
-ALI_PRECREATE_ORDER = 0, /* require an online order qrcode from alipay */
-ALI_PRECREATE_QUERY = 1, /* query the payment status of order */
+    ALI_PRECREATE_ORDER = 0, /* require an online order qrcode from alipay */
+    ALI_PRECREATE_QUERY = 1, /* query the payment status of order with timemask */
+    ALI_PRECREATE_QUERY_NO= 2, /* query the with serial no*/
 };
+int alipay_precreate(char* precr, int* len, struct payInfo* order_info, int type);
+int alipay_preorder(char* precr, int* len, struct payInfo* order_info);
+int alipay_queryorder(char* precr, int* len, struct payInfo* order_info);
+int alipay_query(char* precr, int* len, char* str_imsi);
+int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int order_type);
 #endif

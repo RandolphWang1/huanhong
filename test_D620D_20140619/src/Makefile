@@ -23,7 +23,8 @@ D620D_test:InitPos.o Main.o Param.o CommTest.o KbdTest.o LcdTest.o \
 	chmod +x D620D_test
 	mv ./D620D_test ./D620D/D620D
 #	tar zcvf D620D.tar.gz D620D/ drv/ local.sh
-	tar zcvf D620D.tar.gz D620D/D620D D620D/tms
+	#tar zcvf D620D.tar.gz D620D/D620D D620D/tms
+	tar zcvf D620D.tar.gz D620D/D620D
 	mv ./D620D.tar.gz ../
 	rm -f *.o *bak
 

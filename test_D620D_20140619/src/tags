@@ -1,0 +1,449 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALIPAY_QUERY	CommTest.c	11;"	d	file:
+ALIPAY_QUERY	Main.c	9;"	d	file:
+AT24Read	CardReaderTest.c	/^void AT24Read()$/;"	f
+AT24Test	CardReaderTest.c	/^ void AT24Test()$/;"	f
+AT_Command	Sms.c	/^int AT_Command(char *cmd, char length, char code, int time)$/;"	f
+Aid	PSE.c	/^int Aid()$/;"	f
+AnalyAidData	PSE.c	/^int AnalyAidData(BYTE nSlot, BYTE nOutLen, BYTE_PTR data, BYTE_PTR SFI)$/;"	f
+AnalyDDFData	PSE.c	/^int AnalyDDFData(BYTE nSlot, BYTE nOutLen, BYTE_PTR data, BYTE_PTR SFI, BYTE_PTR nRecCount)$/;"	f
+AnalyMFData	PSE.c	/^int AnalyMFData(BYTE nSlot, BYTE nOutLen, BYTE_PTR data, BYTE_PTR SFI, BYTE_PTR nRecCount, BYTE_PTR bPSE)$/;"	f
+AnalyRecData	PSE.c	/^int AnalyRecData(BYTE nSlot, BYTE nOutLen, BYTE_PTR data, BYTE_PTR SFI)$/;"	f
+AppInit	AppSelect.c	/^int AppInit()$/;"	f
+AppSelect	AppSelect.c	/^int AppSelect()$/;"	f
+BYTE_ORDER	md5.c	57;"	d	file:
+BYTE_ORDER	md5.c	59;"	d	file:
+BYTE_ORDER	md5.c	61;"	d	file:
+CC	Makefile	/^CC = \/usr\/local\/arm\/2.95.3\/bin\/arm-linux-gcc$/;"	m
+CDMACommTest	GprsTest.c	/^void CDMACommTest()$/;"	f
+CDMATest	GprsTest.c	/^void CDMATest()$/;"	f
+CFLAGS	Makefile	/^CFLAGS= -I\/YF2410\/kernel\/include -I..\/inc\/sys -I..\/inc\/SDKInc -I..\/inc$/;"	m
+CMD_BEEP	Epp.c	36;"	d	file:
+CMD_CLEAR_ALL_APP_KEY	Epp.c	31;"	d	file:
+CMD_CLEAR_ALL_ONE_KEY	Epp.c	57;"	d	file:
+CMD_CLEAR_EEPROM	Epp.c	75;"	d	file:
+CMD_CLEAR_IDLE_LOGO	Epp.c	32;"	d	file:
+CMD_CLEAR_ONE_KEY	Epp.c	58;"	d	file:
+CMD_CLEAR_SCREEN	Epp.c	40;"	d	file:
+CMD_DISPLAY_LOGO	Epp.c	39;"	d	file:
+CMD_DISPLAY_STRING	Epp.c	41;"	d	file:
+CMD_DKEY_AUTH_STEP1	Epp.c	51;"	d	file:
+CMD_DKEY_AUTH_STEP2	Epp.c	52;"	d	file:
+CMD_DOWNLOAD_AIK_AUTH1	Epp.c	48;"	d	file:
+CMD_DOWNLOAD_AIK_AUTH2	Epp.c	49;"	d	file:
+CMD_DOWNLOAD_APP_INIT_KEY	Epp.c	50;"	d	file:
+CMD_DOWNLOAD_DUKPT_KEY	Epp.c	54;"	d	file:
+CMD_DOWNLOAD_KEY	Epp.c	53;"	d	file:
+CMD_DOWNLOAD_LCK_MTEK	Epp.c	47;"	d	file:
+CMD_DOWNLOAD_UBSK	Epp.c	74;"	d	file:
+CMD_ENTER_FACTORY_TEST	Epp.c	72;"	d	file:
+CMD_FORMAT_PED	Epp.c	56;"	d	file:
+CMD_GET_DUKPT_MAC	Epp.c	66;"	d	file:
+CMD_GET_DUKPT_PIN	Epp.c	67;"	d	file:
+CMD_GET_FIXED_MAC	Epp.c	64;"	d	file:
+CMD_GET_FIXED_PIN	Epp.c	65;"	d	file:
+CMD_GET_MAC	Epp.c	62;"	d	file:
+CMD_GET_PIN	Epp.c	63;"	d	file:
+CMD_GET_RANDOM_NUMBER	Epp.c	34;"	d	file:
+CMD_GET_SYSTEM_INFO	Epp.c	35;"	d	file:
+CMD_GET_TDEA	Epp.c	69;"	d	file:
+CMD_KB_GET_STRING	Epp.c	45;"	d	file:
+CMD_LIGHT	Epp.c	37;"	d	file:
+CMD_LOAD_IDLE_LOGO	Epp.c	42;"	d	file:
+CMD_RESTORE_IDLE_LOGO	Epp.c	43;"	d	file:
+CMD_SET_PED_SN	Epp.c	73;"	d	file:
+CMD_SET_PIN_TIMEOUT	Epp.c	68;"	d	file:
+CMD_SET_TDES_IV	Epp.c	70;"	d	file:
+CMD_UKEY_AUTH_STEP1	Epp.c	60;"	d	file:
+CMD_UKEY_AUTH_STEP2	Epp.c	61;"	d	file:
+CPUTest	CardReaderTest.c	/^void CPUTest()$/;"	f
+CalcMac	PinpadTest.c	/^static void CalcMac(int handle)$/;"	f	file:
+CardReaderTest	CardReaderTest.c	/^int CardReaderTest()$/;"	f
+Cardholder	AppSelect.c	/^int Cardholder()$/;"	f
+ClearClient	Function.c	/^void ClearClient()$/;"	f
+ClearSerial	IdentifyReader.c	/^void ClearSerial(int handle)$/;"	f
+CloseCpuCard	PSE.c	/^int CloseCpuCard(int nSlot)$/;"	f
+Close_GPGS_Mode	Sms.c	/^int Close_GPGS_Mode()$/;"	f
+ColorTest	LcdTest.c	/^static int ColorTest(int color, char *text)$/;"	f	file:
+CommTest	CommTest.c	/^int CommTest()$/;"	f
+CopyData	OtherTest.c	/^void CopyData()$/;"	f
+DA	AppSelect.c	/^int DA(BYTE_PTR tvr)$/;"	f
+DataEncrypt	PinpadTest.c	/^static void DataEncrypt(int handle)$/;"	f	file:
+DispKeyValue	KbdTest.c	/^static void DispKeyValue(UCHAR ucKey)$/;"	f	file:
+DoCpuTest	CardReaderTest.c	/^int DoCpuTest(int nSlot)	$/;"	f
+EPP_CONFIGURE	Epp.c	/^}EPP_CONFIGURE;   \/\/ 164 bytes$/;"	t	typeref:struct:_EPP_CONFIGURE_	file:
+EPP_PORT	Epp.c	25;"	d	file:
+EPP_RECV_PACKET_MAX_LEN	Epp.c	27;"	d	file:
+EPP_SEND_BUFFLEN	Epp.c	29;"	d	file:
+EppBeep	Epp.c	/^int EppBeep(DWORD dwFrequency, DWORD dwTimeMs)$/;"	f
+EppClearAKey	Epp.c	/^int EppClearAKey(BYTE byKeyType, BYTE byKeyIndex)$/;"	f
+EppClearOneAppKey	Epp.c	/^int EppClearOneAppKey(void)$/;"	f
+EppClearScreen	Epp.c	/^int EppClearScreen(void)$/;"	f
+EppClose	Epp.c	/^int EppClose(void)$/;"	f
+EppDisplayLogo	Epp.c	/^int EppDisplayLogo(const BYTE *pbyBmpIdleLogoIn)$/;"	f
+EppDisplayString	Epp.c	/^int EppDisplayString(int X, int Y, int iMode, const void *str, int iStrLen)$/;"	f
+EppDownloadLckMtek	Epp.c	/^int EppDownloadLckMtek(void)$/;"	f
+EppEnterFactoryTest	Epp.c	/^int EppEnterFactoryTest(BYTE bySpeed)$/;"	f
+EppFormatPed	Epp.c	/^int EppFormatPed(void)$/;"	f
+EppGetRand	Epp.c	/^int EppGetRand(BYTE *pbyRandOut)$/;"	f
+EppGetSystemInfo	Epp.c	/^int EppGetSystemInfo(BYTE byType, void *pvInfoOut)$/;"	f
+EppInit	Epp.c	/^int EppInit(const BYTE *pbyLck, const BYTE *pbyMtek, const BYTE *pbyAppName, const BYTE *pbyAkdak,$/;"	f
+EppLight	Epp.c	/^int EppLight(DWORD dwMode, DWORD dwTimeMs)$/;"	f
+EppOpen	Epp.c	/^int EppOpen(void)$/;"	f
+EppRestoreDefaultIdleLogo	Epp.c	/^int EppRestoreDefaultIdleLogo(void)$/;"	f
+EppSetIdleLogo	Epp.c	/^int EppSetIdleLogo(const BYTE *pbyBmpIdleLogoIn)$/;"	f
+EppSetPinInputTimeout	Epp.c	/^int EppSetPinInputTimeout(WORD wTimeout100Ms)$/;"	f
+EppSetTdesIv	Epp.c	/^int EppSetTdesIv(const BYTE *pbyIvData)$/;"	f
+EthernetTest	EthernetTest.c	/^void EthernetTest()$/;"	f
+F	md5.c	202;"	d	file:
+FM17CPU	FM17XX.c	/^void FM17CPU()$/;"	f
+FM17TestAddValue	FM17XX.c	/^void FM17TestAddValue()$/;"	f
+FM17TestDecValue	FM17XX.c	/^void FM17TestDecValue()$/;"	f
+FM17TestInit	FM17XX.c	/^void FM17TestInit()$/;"	f
+FM17TestRead	FM17XX.c	/^void FM17TestRead()$/;"	f
+FM17TestReadAllValue	FM17XX.c	/^void FM17TestReadAllValue()$/;"	f
+FM17TestWrite	FM17XX.c	/^void FM17TestWrite()$/;"	f
+G	md5.c	228;"	d	file:
+GSM_RecString_Comp	Sms.c	/^char GSM_RecString_Comp(char ans[], int length)$/;"	f
+GetAidData	PSE.c	/^int GetAidData(BYTE_PTR pAid, BYTE nLen)$/;"	f
+GetDDFData	PSE.c	/^int GetDDFData(BYTE nSlot, BYTE_PTR SFI, BYTE_PTR SWA, BYTE_PTR SWB, INT * nOutLen, BYTE_PTR data)$/;"	f
+GetDDFSFI	PSE.c	/^int GetDDFSFI(BYTE nSlot, BYTE_PTR nRecCount, BYTE_PTR SFI)$/;"	f
+GetDFByName	PSE.c	/^int GetDFByName(BYTE_PTR pAid, BYTE nLen, BYTE_PTR SWA, BYTE_PTR SWB, BYTE_PTR data, BYTE_PTR nOutLen)$/;"	f
+GetID	PinpadTest.c	/^static void GetID(handle)$/;"	f	file:
+GetMF	PSE.c	/^int GetMF(int nSlot)$/;"	f
+GetMFData	PSE.c	/^int GetMFData(BYTE nSlot, BYTE_PTR SWA, BYTE_PTR SWB, INT * nOutLen, BYTE_PTR data)$/;"	f
+GetMFSFI	PSE.c	/^int GetMFSFI(BYTE nSlot, BYTE_PTR nRecCount, BYTE_PTR SFI, BYTE_PTR bPSE)$/;"	f
+GetResp	PSE.c	/^int GetResp(INT nSlot, BYTE_PTR SWA, BYTE_PTR SWB, INT nOutLen, BYTE_PTR data)$/;"	f
+GetSFIRec	PSE.c	/^int GetSFIRec(INT nSlot, INT RecNum, BYTE SFI, BYTE_PTR SWA, BYTE_PTR SWB,$/;"	f
+GetSFIRecord	PSE.c	/^int GetSFIRecord(BYTE nSlot, BYTE RecNum, BYTE SFI)$/;"	f
+GprsTest	GprsTest.c	/^void GprsTest()$/;"	f
+Gprs_Quectel_CommTest	GprsTest.c	/^void Gprs_Quectel_CommTest()$/;"	f
+Gprs_Siemens_CommTest	GprsTest.c	/^void Gprs_Siemens_CommTest()$/;"	f
+H	md5.c	254;"	d	file:
+Hex2Asc	Sms.c	/^void Hex2Asc(char *dest_asc, unsigned char*src_bcd, char src_len)$/;"	f
+I	md5.c	280;"	d	file:
+IDENTIFY_TIME_OUT	IdentifyReader.c	6;"	d	file:
+IDENTIFY_TIME_OUT2	IdentifyReader.c	7;"	d	file:
+IMSI	aliqr.c	/^char* IMSI = "123456789012345";$/;"	v
+InitPOS	InitPos.c	/^INT InitPOS(void)$/;"	f
+InitSMS	Param.c	/^void InitSMS()$/;"	f
+InitTerm	Param.c	/^void InitTerm()$/;"	f
+Init_SMS	Sms.c	/^int Init_SMS(int model,char *CSCA)$/;"	f
+InputPwd	PinpadTest.c	/^static void InputPwd(int handle)$/;"	f	file:
+JingZhenTest	JingZhenTest.c	/^int JingZhenTest()$/;"	f
+KEY_INDEX_NUMBER	Epp.c	86;"	d	file:
+KbdTest	KbdTest.c	/^int KbdTest()$/;"	f
+LcdTest	LcdTest.c	/^void LcdTest()$/;"	f
+M1Set	CardReaderTest.c	/^void M1Set()$/;"	f
+M1TestCard	CardReaderTest.c	/^int M1TestCard()$/;"	f
+MEMCardSet	CardReaderTest.c	/^void MEMCardSet()$/;"	f
+MEMRead	CardReaderTest.c	/^void MEMRead()$/;"	f
+MEMTest	CardReaderTest.c	/^ void MEMTest()$/;"	f
+MEMWrite	CardReaderTest.c	/^void MEMWrite()$/;"	f
+MINZU_COUNT	IdentifyReader.c	10;"	d	file:
+MagCardTest	CardReaderTest.c	/^void MagCardTest()$/;"	f
+Magic_proc	ProcCard.c	/^int Magic_proc()$/;"	f
+Mifare_proc	ProcCard.c	/^int Mifare_proc()$/;"	f
+ModemTest	ModemTest.c	/^void ModemTest()$/;"	f
+Moneyformat	CommTest.c	/^char* Moneyformat(char* buf)$/;"	f
+MultiByteToWideChar	Sms.c	/^int MultiByteToWideChar(const char* lpMultiByteStr,int cchMultiByte,unsigned short * lpWideCharStr)$/;"	f
+OpenCpuCard	PSE.c	/^int OpenCpuCard(int nSlot)$/;"	f
+Open_GPGS_Mode	Sms.c	/^int Open_GPGS_Mode()$/;"	f
+OtherFunc	Function.c	/^int OtherFunc()$/;"	f
+OtherTest	OtherTest.c	/^void OtherTest()$/;"	f
+PinpadHYTest	PinpadTest.c	/^int PinpadHYTest()$/;"	f
+PinpadN20Test	PinpadTest.c	/^int PinpadN20Test()$/;"	f
+PinpadTest	PinpadTest.c	/^int PinpadTest()$/;"	f
+PrintIMG	OtherTest.c	/^void PrintIMG()$/;"	f
+PrintLog	PrinterTest.c	/^void PrintLog(char *Title, char *Msg)$/;"	f
+PrintLogMagic	CardReaderTest.c	/^static void PrintLogMagic(char *Msg1, char *Msg2, char *Msg3)$/;"	f	file:
+PrintMsg	PrinterTest.c	/^void PrintMsg(char *Msg)$/;"	f
+PrinterBLTest	PrinterTest.c	/^int PrinterBLTest()$/;"	f
+PrinterNormalTest	PrinterTest.c	/^int PrinterNormalTest()$/;"	f
+PrinterQRTest	PrinterTest.c	/^int PrinterQRTest()$/;"	f
+PrinterTest	PrinterTest.c	/^int PrinterTest()$/;"	f
+ProLimit	AppSelect.c	/^int ProLimit(BYTE_PTR tvr)$/;"	f
+ProcData	IdentifyReader.c	/^void ProcData(char *buff, int in_len, char *data, int *out_len)$/;"	f
+PutRecvMessage	Sms.c	/^void PutRecvMessage(SM_PARAM* pparam, int nCount)$/;"	f
+RET_MODULE_COMMUNICATION	Epp.c	81;"	d	file:
+RET_MODULE_FACTORY	Epp.c	84;"	d	file:
+RET_MODULE_IC_CARD	Epp.c	82;"	d	file:
+RET_MODULE_KEY_BOARD	Epp.c	78;"	d	file:
+RET_MODULE_LCD_SCREEN	Epp.c	79;"	d	file:
+RET_MODULE_MAGIC_CARD	Epp.c	83;"	d	file:
+RET_MODULE_PED	Epp.c	80;"	d	file:
+RET_MODULE_SYSTEM_INFO	Epp.c	77;"	d	file:
+ROTATE_LEFT	md5.c	197;"	d	file:
+ReadAppData	AppSelect.c	/^int ReadAppData()$/;"	f
+ReadCard	ProcCard.c	/^int ReadCard()$/;"	f
+ReadCardNO	ProcCard.c	/^int ReadCardNO()$/;"	f
+ReadCardNo	ReadCardNo.c	/^int ReadCardNo(int nSlot)$/;"	f
+ReadCmd	IdentifyReader.c	/^int ReadCmd(int handle, char cmd, int need_len, char *data, LONG time_out)$/;"	f
+ReadComm	Sms.c	/^int ReadComm(void* pData, int nLength)$/;"	f
+ReadIdentify	IdentifyReader.c	/^int ReadIdentify(T_IDENTIFY_INFO *pInfo)$/;"	f
+ReadSerialData	IdentifyReader.c	/^int ReadSerialData(int handle, char *data, int len, LONG time_out)$/;"	f
+Read_GPRS_Data	Sms.c	/^int Read_GPRS_Data()$/;"	f
+RficTest	ProcCard.c	/^void RficTest(void)$/;"	f
+RficWirte	ProcCard.c	/^void RficWirte(void)$/;"	f
+SET	md5.c	203;"	d	file:
+SET	md5.c	223;"	d	file:
+SET	md5.c	229;"	d	file:
+SET	md5.c	249;"	d	file:
+SET	md5.c	255;"	d	file:
+SET	md5.c	275;"	d	file:
+SET	md5.c	281;"	d	file:
+SET	md5.c	301;"	d	file:
+SIGUSER1	ProcCard.c	4;"	d	file:
+SIGUSER2	ProcCard.c	5;"	d	file:
+SMS_Demo	Function.c	/^int SMS_Demo()$/;"	f
+SMS_Setting	Sms.c	/^int SMS_Setting()$/;"	f
+ScanBarCode	Function.c	/^void ScanBarCode()$/;"	f
+SetCDMA	CommTest.c	/^static int SetCDMA()$/;"	f	file:
+SetCommParam	CommTest.c	/^void SetCommParam()$/;"	f
+SetEthernet	CommTest.c	/^static int SetEthernet()$/;"	f	file:
+SetGPRS	CommTest.c	/^static int SetGPRS()$/;"	f	file:
+SetKey	PinpadTest.c	/^static void SetKey(int handle)$/;"	f	file:
+SetKeyM1	ProcCard.c	/^void SetKeyM1()$/;"	f
+SetModem	CommTest.c	/^static int SetModem()$/;"	f	file:
+SetMoney	CommTest.c	/^int SetMoney()$/;"	f
+Set_Wifi	WifiTest.c	/^int Set_Wifi()$/;"	f
+Set_Wifi_Auto	WifiTest.c	/^int Set_Wifi_Auto()$/;"	f
+ShowText	PinpadTest.c	/^static void ShowText(handle)$/;"	f	file:
+SplitStr	CommTest.c	/^int SplitStr(char *buff, char *parr[], char *token) $/;"	f
+T1	md5.c	65;"	d	file:
+T10	md5.c	74;"	d	file:
+T11	md5.c	75;"	d	file:
+T12	md5.c	76;"	d	file:
+T13	md5.c	77;"	d	file:
+T14	md5.c	78;"	d	file:
+T15	md5.c	79;"	d	file:
+T16	md5.c	80;"	d	file:
+T17	md5.c	81;"	d	file:
+T18	md5.c	82;"	d	file:
+T19	md5.c	83;"	d	file:
+T2	md5.c	66;"	d	file:
+T20	md5.c	84;"	d	file:
+T21	md5.c	85;"	d	file:
+T22	md5.c	86;"	d	file:
+T23	md5.c	87;"	d	file:
+T24	md5.c	88;"	d	file:
+T25	md5.c	89;"	d	file:
+T26	md5.c	90;"	d	file:
+T27	md5.c	91;"	d	file:
+T28	md5.c	92;"	d	file:
+T29	md5.c	93;"	d	file:
+T3	md5.c	67;"	d	file:
+T30	md5.c	94;"	d	file:
+T31	md5.c	95;"	d	file:
+T32	md5.c	96;"	d	file:
+T33	md5.c	97;"	d	file:
+T34	md5.c	98;"	d	file:
+T35	md5.c	99;"	d	file:
+T36	md5.c	100;"	d	file:
+T37	md5.c	101;"	d	file:
+T38	md5.c	102;"	d	file:
+T39	md5.c	103;"	d	file:
+T4	md5.c	68;"	d	file:
+T40	md5.c	104;"	d	file:
+T41	md5.c	105;"	d	file:
+T42	md5.c	106;"	d	file:
+T43	md5.c	107;"	d	file:
+T44	md5.c	108;"	d	file:
+T45	md5.c	109;"	d	file:
+T46	md5.c	110;"	d	file:
+T47	md5.c	111;"	d	file:
+T48	md5.c	112;"	d	file:
+T49	md5.c	113;"	d	file:
+T5	md5.c	69;"	d	file:
+T50	md5.c	114;"	d	file:
+T51	md5.c	115;"	d	file:
+T52	md5.c	116;"	d	file:
+T53	md5.c	117;"	d	file:
+T54	md5.c	118;"	d	file:
+T55	md5.c	119;"	d	file:
+T56	md5.c	120;"	d	file:
+T57	md5.c	121;"	d	file:
+T58	md5.c	122;"	d	file:
+T59	md5.c	123;"	d	file:
+T6	md5.c	70;"	d	file:
+T60	md5.c	124;"	d	file:
+T61	md5.c	125;"	d	file:
+T62	md5.c	126;"	d	file:
+T63	md5.c	127;"	d	file:
+T64	md5.c	128;"	d	file:
+T7	md5.c	71;"	d	file:
+T8	md5.c	72;"	d	file:
+T9	md5.c	73;"	d	file:
+TARGET1	Makefile	/^TARGET1 = SDK$/;"	m
+TARGET2	Makefile	/^TARGET2 = lcd$/;"	m
+TARGET3	Makefile	/^TARGET3 = printer$/;"	m
+TARGET4	Makefile	/^TARGET4 = icc$/;"	m
+TARGET5	Makefile	/^TARGET5 = kbd$/;"	m
+TARGET6	Makefile	/^TARGET6 = magcard$/;"	m
+TARGET7	Makefile	/^TARGET7 = armd8linux$/;"	m
+TARGET8	Makefile	/^TARGET8 = control$/;"	m
+TRACK1_OK	CardReaderTest.c	135;"	d	file:
+TRACK2_OK	CardReaderTest.c	136;"	d	file:
+TRACK3_OK	CardReaderTest.c	137;"	d	file:
+T_MASK	md5.c	64;"	d	file:
+TestInput	OtherTest.c	/^void TestInput()$/;"	f
+TestInputDate	OtherTest.c	/^void TestInputDate()$/;"	f
+TestInputMoney	OtherTest.c	/^void TestInputMoney()$/;"	f
+TestRfic	CardReaderTest.c	/^int TestRfic(void)$/;"	f
+ToHex	statement.c	/^unsigned char ToHex(char text)$/;"	f
+Unicode2Asc	IdentifyReader.c	/^void Unicode2Asc(char *unicode, char *asc)$/;"	f
+UpdateAppFromU	Function.c	/^void UpdateAppFromU()$/;"	f
+UpdateTms	Function.c	/^void UpdateTms()$/;"	f
+ViewIpSet	CommTest.c	/^int ViewIpSet()$/;"	f
+WideCharToMultiByte	Sms.c	/^int WideCharToMultiByte(unsigned char*  lpWideCharStr,int  cchWideChar,char*  lpMultiByteStr)$/;"	f
+WifiCommTest	WifiTest.c	/^void WifiCommTest()$/;"	f
+WriteComm	Sms.c	/^int WriteComm(void* pData, int nLength,int flg)$/;"	f
+WritePayment	statement.c	/^void WritePayment(int posfd, struct receipt_info *rt_detail)$/;"	f
+Write_GPRS_Data	Sms.c	/^int Write_GPRS_Data(char a[],int length)$/;"	f
+_EPP_CONFIGURE_	Epp.c	/^typedef struct _EPP_CONFIGURE_$/;"	s	file:
+_PRINT_DEBUG_	Epp.c	174;"	d	file:
+_PRINT_DEBUG_	Epp.c	24;"	d	file:
+_input_charset	aliqr.c	/^char* _input_charset = "utf-8";$/;"	v
+_strcmp	Main.c	/^int _strcmp(char *str1,char *str2)$/;"	f
+abyAKDAK	Epp.c	/^    BYTE abyAKDAK[16];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyAKUAK	Epp.c	/^    BYTE abyAKUAK[16];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyAppName	Epp.c	/^    BYTE abyAppName[32];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyLck	Epp.c	/^    BYTE abyLck[16];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyMDTEK	Epp.c	/^    BYTE abyMDTEK[24];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyMUTEK	Epp.c	/^    BYTE abyMUTEK[24];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyMac	Epp.c	/^    BYTE abyMac[4];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyMtek	Epp.c	/^    BYTE abyMtek[24];$/;"	m	struct:_EPP_CONFIGURE_	file:
+abyRev	Epp.c	/^    BYTE abyRev[3];$/;"	m	struct:_EPP_CONFIGURE_	file:
+address	Main.c	/^struct sockaddr_un address;$/;"	v	typeref:struct:sockaddr_un
+alipay_main	https.c	/^int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int order_type)$/;"	f
+alipay_precreate	aliqr.c	/^int alipay_precreate(char* precr, int* len, struct payInfo* order_info, int type)$/;"	f
+alipay_preorder	aliqr.c	/^int alipay_preorder(char* precr, int* len, struct payInfo* order_info)$/;"	f
+alipay_query	aliqr.c	/^int alipay_query(char* precr, int* len, char* str_imsi)$/;"	f
+alipay_query_serialno	qrgenerator.c	/^int alipay_query_serialno(unsigned long long queryNo)$/;"	f
+alipay_queryorder	aliqr.c	/^int alipay_queryorder(char* precr, int* len, struct payInfo* order_info)$/;"	f
+byFlag	Epp.c	/^    BYTE byFlag;$/;"	m	struct:_EPP_CONFIGURE_	file:
+characterDataHandler	xmlparser.c	/^void characterDataHandler(void *userData, const XML_Char *s, int len)$/;"	f
+clear_all	IdentifyReader.c	/^void clear_all(int handle)$/;"	f
+demo_SMS_read	Sms.c	/^int demo_SMS_read(int index)$/;"	f
+demo_SMS_recv	Sms.c	/^int demo_SMS_recv()$/;"	f
+demo_SMS_send	Sms.c	/^int demo_SMS_send()$/;"	f
+endElement	xmlparser.c	/^void endElement(void *userData, const XML_Char *name)$/;"	f
+endElement1	xmlparser.c	/^void endElement1(void *userData, const XML_Char *name)$/;"	f
+endElement2	xmlparser.c	/^void endElement2(void *userData, const XML_Char *name)$/;"	f
+endElement3	xmlparser.c	/^void endElement3(void *userData, const XML_Char *name)$/;"	f
+gSMS	Param.c	/^T_SMS  gSMS;$/;"	v
+gTerm	Param.c	/^T_TERM gTerm;$/;"	v
+g_EppRecvBuff	Epp.c	/^static BYTE g_EppRecvBuff[EPP_SEND_BUFFLEN];$/;"	v	file:
+g_EppSendBuff	Epp.c	/^static BYTE g_EppSendBuff[EPP_SEND_BUFFLEN];$/;"	v	file:
+g_abyDefaultAppName	Epp.c	/^static const BYTE g_abyDefaultAppName[12] = {0x4e,0x45,0x57,0x20,0x50,0x4f,0x53,0x20,0x41,0x50,0x50,0x00};$/;"	v	file:
+g_abyEppDefaultAkdak	Epp.c	/^static const BYTE g_abyEppDefaultAkdak[16]={0x26,0x90,0x77,0xa3,0x33,0x4d,0x32,0xb1,0x14,0xdb,0x04,0x2d,0x1d,0xa0,0x44,0xdb};$/;"	v	file:
+g_abyEppDefaultAkuak	Epp.c	/^static const BYTE g_abyEppDefaultAkuak[16]={0x98,0xa4,0x9f,0xca,0x31,0x2b,0xcc,0x7e,0xa8,0x01,0x66,0xe1,0x8b,0x2b,0x0c,0xa6};$/;"	v	file:
+g_abyEppDefaultLck	Epp.c	/^static const BYTE g_abyEppDefaultLck[16] = {0xde,0x21,0xcb,0x34,0xb6,0x25,0x34,0x33,0x87,0x98,$/;"	v	file:
+g_abyEppDefaultMdtek	Epp.c	/^static const BYTE g_abyEppDefaultMdtek[24]={0x75,0x72,0x4d,0xb9,0x3a,0x73,0xe0,0x44,0x6e,0xf6,$/;"	v	file:
+g_abyEppDefaultMtek	Epp.c	/^static const BYTE g_abyEppDefaultMtek[24] = {0x1a,0xc4,0xb9,0xc8,0x7b,0xde,0x8c,0x27,0x9b,0x4d,$/;"	v	file:
+g_abyEppDefaultMutek	Epp.c	/^static const BYTE g_abyEppDefaultMutek[24]={0xef,0x02,0xb7,0x68,0x8e,0xe1,0x88,0x24,0x0c,0x50,$/;"	v	file:
+g_abyEppMainKey	Epp.c	/^static const BYTE g_abyEppMainKey[8] = {0x39, 0xc2, 0xb4, 0xf7, 0xd1, 0xb0, 0xe4, 0x84};$/;"	v	file:
+g_abyIdleLogoFileHead	Epp.c	/^static const BYTE g_abyIdleLogoFileHead[62] =$/;"	v	file:
+g_abyNormalLogoFileHead	Epp.c	/^static const BYTE g_abyNormalLogoFileHead[62] =$/;"	v	file:
+g_abyRecvBuffPrint	Epp.c	/^BYTE g_abyRecvBuffPrint[10240];$/;"	v
+g_abySecuryPassword	Epp.c	/^static const BYTE g_abySecuryPassword[8] = {0xab,0x87,0x98,0x56,0xcf,0xde,0xa3,0x19};$/;"	v	file:
+g_abySendBuffPrint	Epp.c	/^BYTE g_abySendBuffPrint[10240];$/;"	v
+g_awEpphalfCrc16CCITT	Epp.c	/^static const WORD g_awEpphalfCrc16CCITT[16]={ \/* CRC 半字节余式表 *\/$/;"	v	file:
+g_bPSE	PSE.c	/^BOOL g_bPSE = TRUE;$/;"	v
+g_iEppPortNum	Epp.c	/^static int g_iEppPortNum = 0;$/;"	v	file:
+g_iEppReadConfigureFlag	Epp.c	/^static int g_iEppReadConfigureFlag = 0;$/;"	v	file:
+g_iRecvPrintLen	Epp.c	/^int g_iRecvPrintLen = 0;$/;"	v
+g_iSendPrintLen	Epp.c	/^int g_iSendPrintLen = 0;$/;"	v
+g_nAsi	PSE.c	/^int g_nAsi = 0;$/;"	v
+g_pRecord	PSE.c	/^PRECORD g_pRecord = NULL;$/;"	v
+g_sEppConfigure	Epp.c	/^static EPP_CONFIGURE g_sEppConfigure;$/;"	v	file:
+generator_qrcode_to_bmp	qrgenerator.c	/^int  generator_qrcode_to_bmp(int out, char* price)$/;"	f
+getIMSIconfig	qrgenerator.c	/^void getIMSIconfig()$/;"	f
+getSNoPre	qrgenerator.c	/^unsigned long long getSNoPre(void)$/;"	f
+goods_detail	aliqr.c	/^char* goods_detail = "[{\\"goodsName\\":\\"ipad\\",\\"price\\":\\"0.01\\",\\"quantity\\":\\"1\\"}]";$/;"	v
+gsmBytes2String	Sms.c	/^int gsmBytes2String(const unsigned char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmDecode7bit	Sms.c	/^int gsmDecode7bit(const unsigned char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmDecode8bit	Sms.c	/^int gsmDecode8bit(unsigned char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmDecodePdu	Sms.c	/^int gsmDecodePdu(const char* pSrc, SM_PARAM* pDst)$/;"	f
+gsmDecodeUcs2	Sms.c	/^int gsmDecodeUcs2(unsigned char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmDeleteMessage	Sms.c	/^int gsmDeleteMessage(int index)$/;"	f
+gsmEncode7bit	Sms.c	/^int gsmEncode7bit(const char* pSrc, unsigned char* pDst, int nSrcLength)$/;"	f
+gsmEncodePdu	Sms.c	/^int gsmEncodePdu(const SM_PARAM* pSrc, char* pDst)$/;"	f
+gsmEncodeUcs2	Sms.c	/^int gsmEncodeUcs2(const char* pSrc, unsigned char* pDst, int nSrcLength)$/;"	f
+gsmGetResponse	Sms.c	/^int gsmGetResponse(SM_BUFF* pBuff)$/;"	f
+gsmInvertNumbers	Sms.c	/^int gsmInvertNumbers(const char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmParseMessage	Sms.c	/^int gsmParseMessage(SM_PARAM* pMsg, SM_BUFF* pBuff)$/;"	f
+gsmParseMessageList	Sms.c	/^int gsmParseMessageList(SM_PARAM* pMsg, SM_BUFF* pBuff)$/;"	f
+gsmReadMessage	Sms.c	/^int gsmReadMessage(int index)$/;"	f
+gsmReadMessageList	Sms.c	/^int gsmReadMessageList()$/;"	f
+gsmSendMessage	Sms.c	/^int gsmSendMessage(SM_PARAM* pSrc)$/;"	f
+gsmSerializeNumbers	Sms.c	/^int gsmSerializeNumbers(const char* pSrc, char* pDst, int nSrcLength)$/;"	f
+gsmString2Bytes	Sms.c	/^int gsmString2Bytes(const char* pSrc, unsigned char* pDst, int nSrcLength)$/;"	f
+iGprsHandle	GprsTest.c	/^int iGprsHandle;    \/\/无线句柄$/;"	v
+iPort	Epp.c	/^    int  iPort;$/;"	m	struct:_EPP_CONFIGURE_	file:
+iScanHandle	Main.c	/^BOOL iScanHandle;$/;"	v
+init	IdentifyReader.c	/^int init(int handle)$/;"	f
+jfkey	aliqr.c	/^char* jfkey= "11";$/;"	v
+jfserver	aliqr.c	/^char* jfserver = "182.92.186.90";$/;"	v
+jfserver	aliqr.c	/^char* jfserver = "192.168.1.104";$/;"	v
+jfsubject	aliqr.c	/^char* jfsubject = "ccc";$/;"	v
+jftotal_fee	aliqr.c	/^char* jftotal_fee = "0.01";$/;"	v
+key	aliqr.c	/^static char* key = "ai1ce2jkwkmd3bddy97z0xnz3lxqk731";$/;"	v	file:
+main	Main.c	/^int main()$/;"	f
+md5_append	md5.c	/^md5_append(md5_state_t *pms, const md5_byte_t *data, int nbytes)$/;"	f
+md5_finish	md5.c	/^md5_finish(md5_state_t *pms, md5_byte_t digest[16])$/;"	f
+md5_init	md5.c	/^md5_init(md5_state_t *pms)$/;"	f
+md5_process	md5.c	/^md5_process(md5_state_t *pms, const md5_byte_t *data \/*[64]*\/)$/;"	f	file:
+minzu_code	IdentifyReader.c	/^char *minzu_code[]={$/;"	v
+order_time	aliqr.c	/^char* order_time ="2014-08-0211:21:20";$/;"	v
+out_trade_no	aliqr.c	/^char out_trade_no[65] = "353307617728127";$/;"	v
+parseStreamCallback	xmlparser.c	/^size_t parseStreamCallback(void *contents, size_t length, size_t nmemb, void *userp)$/;"	f
+parse_file	statement.c	/^int parse_file(char** gbk_name,int *gbk_size,int position, int offset) {$/;"	f
+partner	aliqr.c	/^static char partner[17]= "2088201565141845";$/;"	v	file:
+portnumber	aliqr.c	/^int portnumber = 8080;$/;"	v
+portnumber	aliqr.c	/^int portnumber = 8180;$/;"	v
+pos_imsi	qrgenerator.c	/^char pos_imsi[20];$/;"	v
+printTail	CommTest.c	/^void printTail(char* price)$/;"	f
+print_logo	CommTest.c	/^void print_logo()$/;"	f
+prmutex	CommTest.c	/^pthread_mutex_t prmutex;$/;"	v
+product_code	aliqr.c	/^char* product_code = "QR_CODE_OFFLINE";$/;"	v
+qrQueryResult	qrgenerator.c	/^char qrQueryResult[16] = {0};$/;"	v
+qrpay_info	qrgenerator.c	/^struct payInfo qrpay_info;$/;"	v	typeref:struct:payInfo
+queryNo	CommTest.c	/^void queryNo(void)$/;"	f
+query_number	qrgenerator.c	/^unsigned long long query_number = 0;$/;"	v
+read_ID	IdentifyReader.c	/^int read_ID(int handle, char *id)$/;"	f
+read_all	IdentifyReader.c	/^int read_all(int handle, char *all_data, int *out_len)$/;"	f
+read_birthday	IdentifyReader.c	/^int read_birthday(int handle, char *date)$/;"	f
+read_line	IdentifyReader.c	/^void read_line(char *buff, int line_num)$/;"	f
+read_name	IdentifyReader.c	/^int read_name(int handle, char *name, int *out_len)$/;"	f
+read_photo	IdentifyReader.c	/^int read_photo(int handle, char *photo_data, int *out_len)$/;"	f
+read_sex	IdentifyReader.c	/^int read_sex(int handle, char *sex)$/;"	f
+royalty_parameters	aliqr.c	/^char* royalty_parameters="[{\\"serialNo\\":\\"1\\",\\"transOut\\":\\"2088201565141845\\",\\"transIn\\":\\"2088002374756150\\",\\"amount\\":\\"0.01\\",\\"desc\\":\\"鍒嗚处娴嬭瘯1\\"}";$/;"	v
+s_EppCheckCfg	Epp.c	/^static void s_EppCheckCfg(void)$/;"	f	file:
+s_EppCrc16CCITT	Epp.c	/^static void s_EppCrc16CCITT(const BYTE *pbyDataIn, DWORD dwDataLen, BYTE abyCrcOut[2])$/;"	f	file:
+s_EppCrc16RecvPacket	Epp.c	/^static int s_EppCrc16RecvPacket(BYTE *pbyRecvData, WORD *pwPacketetLen, DWORD dwTimeoutMs)$/;"	f	file:
+s_EppCrc16SendPacket	Epp.c	/^static int s_EppCrc16SendPacket(WORD wDataLen, WORD wCmd)$/;"	f	file:
+s_EppPortClear	Epp.c	/^static void s_EppPortClear(void)$/;"	f	file:
+s_EppRecv	Epp.c	/^static int s_EppRecv(BYTE *RecvBuf, DWORD TimeOutMs, int nRecvLen)$/;"	f	file:
+s_EppSends	Epp.c	/^static int s_EppSends(const BYTE *SendBuf, DWORD SendLen)$/;"	f	file:
+s_EppSetDefaultConfig	Epp.c	/^static void s_EppSetDefaultConfig(EPP_CONFIGURE *psCfg)$/;"	f	file:
+serial_number	aliqr.c	/^int serial_number = 20;$/;"	v
+service	aliqr.c	/^char* service = "alipay.acquire.precreate";$/;"	v
+service	aliqr.c	/^char* service = "alipay.acquire.query";$/;"	v
+socket_fd	Main.c	/^int socket_fd;$/;"	v
+startElement	xmlparser.c	/^void startElement(void *userData, const XML_Char *name, const XML_Char **atts)$/;"	f
+stqrcode	xmlparser.c	/^char stqrcode[1024]={0};$/;"	v
+subject	aliqr.c	/^char* subject = "testGPRS_uninet";$/;"	v
+thr_fn	CommTest.c	/^void *thr_fn(void* arg)$/;"	f
+time_mark	aliqr.c	/^char* time_mark = "1408001801550";$/;"	v
+timemark	xmlparser.c	/^char timemark[32]={0};$/;"	v
+timeout_exit	ProcCard.c	/^void timeout_exit(int num)$/;"	f
+total_fee	aliqr.c	/^char* total_fee = "0.03";$/;"	v
+uni_table	unicode.c	/^struct Uni_Gb2312 uni_table[]=$/;"	v	typeref:struct:Uni_Gb2312
+user1_exit	ProcCard.c	/^void user1_exit(int num)$/;"	f
+user2_exit	ProcCard.c	/^void user2_exit(int num)$/;"	f

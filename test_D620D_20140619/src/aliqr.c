@@ -84,13 +84,16 @@ char* time_mark = "1408001801550";
 int alipay_precreate(char* precr, int* len, struct payInfo* order_info, int type)
 {
     if (type == ALI_PRECREATE_ORDER)
-    //preorder
-    alipay_preorder(precr,len,order_info);
+        //preorder
+        alipay_preorder(precr,len,order_info);
     else if(type == ALI_PRECREATE_QUERY)
-    //queryorder
-    //alipay_queryorder(precr,order_info);
-    alipay_query(precr,len,order_info->imsi);
+        //queryorder
+        //alipay_queryorder(precr,order_info);
+        alipay_query(precr,len,order_info->imsi);
+    else if(type == ALI_PRECREATE_QUERY_NO)
+        alipay_queryorder(precr,len,order_info);
 }
+
 int alipay_preorder(char* precr, int* len, struct payInfo* order_info)
 {
     
@@ -152,7 +155,7 @@ int alipay_queryorder(char* precr, int* len, struct payInfo* order_info)
 	puts(hex_output);
 
 	//*len = sprintf(encrypt1wokey,"IMSI=%s&serial_number=%d", IMSI, serial_number);
-	*len = sprintf(encrypt1wokey,"IMSI=%s&serial_number=%lld", IMSI, order_info->order_number);
+	*len = sprintf(encrypt1wokey,"IMSI=%s&serial_number=%lld", order_info->imsi, order_info->order_number);
 	//*len = sprintf(https,"http://192.168.1.104:8180/qrcode/preorder/?IMSI=123456789012345&serial_number=12&total_fee=0.01&subject=ccc&order_time=2014-08-0211:21:20");
 	//*len = sprintf(https,"http://%s:%d/qrcode/preorder/?IMSI=%s&serial_number=%d&total_fee=%d&subject=%s&order_time=%s", jfserver, portnumber, IMSI, serial_number, jftotal_fee, jfsubject, order_time);
 	*len = sprintf(https,"http://%s:%d/qrcode/queryorder/?%s&sign=%s",jfserver, portnumber, encrypt1wokey, hex_output);
