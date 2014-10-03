@@ -1372,7 +1372,7 @@ void queryNo(void)
     printf("queryNO prefix:%s \n", prefix);   
     //sprintf(prefix, "%lld\0", prefixint);
     TextOut(0, 5, ALIGN_LEFT, prefix);
-    ret = Input(11,3,hmno,6,IME_NUMBER,WHITE, RED,FALSE,TRUE,FALSE);
+    ret = Input(11,5,hmno,6,IME_NUMBER,WHITE, RED,FALSE,TRUE,FALSE);
     if(ret != OK)
         return;
     memcpy(queryNo,prefix,11);
