@@ -25,6 +25,8 @@
 #include "xmlparser.h"
 extern char stqrcode[];
 extern char timemark[];
+extern char qrout_trade_no[];
+
 
 int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int order_type)
 {
@@ -47,8 +49,10 @@ int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int 
         XML_SetElementHandler(parser, startElement, endElement);
     else if (order_type == ALI_PRECREATE_QUERY)
         XML_SetElementHandler(parser, startElement, endElement2);
-    else if (order_type == ALI_PRECREATE_QUERY_NO)
+    else if (order_type == ALI_PRECREATE_QUERY_SINGLE)
         XML_SetElementHandler(parser, startElement, endElement3);
+    else if (order_type == ALI_PRECREATE_QUERY_24H)
+        XML_SetElementHandler(parser, startElement, endElement2);
     XML_SetCharacterDataHandler(parser, characterDataHandler);
 
     curl_global_init(CURL_GLOBAL_DEFAULT);
@@ -104,10 +108,15 @@ int alipay_main(struct qr_result *query_result, struct payInfo* order_info, int 
                 //memcpy(qr_result,stqrcode,strlen(stqrcode));
                 if(stqrcode[0] != '\0') {
                     memcpy(query_result->qr_string,stqrcode,strlen(stqrcode));
-                    printf("the qr_result is %s\n, the stqrcode is %s\n",query_result->qr_string,stqrcode);
-                    memset(stqrcode,0,1024);
+                    printf("the qr_result is %s\n, the stqrcode is %s sizeof(stqrcode):%d\n",query_result->qr_string,stqrcode,QRRESULTSTR);
+                    memset(stqrcode,0, QRRESULTSTR);
                 }
-                memcpy(query_result->time_mark,timemark,strlen(timemark));
+                if(strlen(timemark) > 0) {
+                    memcpy(query_result->time_mark,timemark,strlen(timemark));
+                }
+                if(strlen(qrout_trade_no) > 0) {
+                    memcpy(query_result->out_trade_no,qrout_trade_no,strlen(qrout_trade_no));
+                }
             }
 
         }

@@ -29,8 +29,10 @@
  */
 
 #include "xmlparser.h"
-char stqrcode[10240]={0};
+#include "aliqr.h"
+char stqrcode[QRRESULTSTR]={0};
 char timemark[32]={0};
+char qrout_trade_no[65]={0};
 
 void startElement(void *userData, const XML_Char *name, const XML_Char **atts)
 {
@@ -64,13 +66,21 @@ void characterDataHandler(void *userData, const XML_Char *s, int len)
 
 void endElement(void *userData, const XML_Char *name)
 {
-  struct ParserStruct *state = (struct ParserStruct *) userData;
-  state->depth--;
-  if( strcmp(name,"result") == 0)
-      if(strstr(state->characters.memory, "qr.alipay.com")) {
-      memcpy(stqrcode,state->characters.memory,state->characters.size);
-      printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
-      }
+    struct ParserStruct *state = (struct ParserStruct *) userData;
+    state->depth--;
+   // printf("%5lu    %5lu   %10lu   %s %s\n",state->tags, state->depth, state->characters.size, name, state->characters.memory);
+    if( strcmp(name,"result") == 0) {
+        //get the qrout_trade_no should be sync with server and request
+        if(state->tags == 11) {
+            memcpy(qrout_trade_no,state->characters.memory,state->characters.size);
+            printf("qrout_trade_no:%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }
+        //get the qrcode 
+        if(strstr(state->characters.memory, "qr.alipay.com")) {
+            memcpy(stqrcode,state->characters.memory,state->characters.size);
+            printf("qrgenerate:%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }
+    }
 }
 
 void endElement1(void *userData, const XML_Char *name)
@@ -91,17 +101,21 @@ void endElement1(void *userData, const XML_Char *name)
 #if 1
 void endElement2(void *userData, const XML_Char *name)
 {
-  struct ParserStruct *state = (struct ParserStruct *) userData;
-  state->depth--;
-  if( strcmp(name,"time_mark") == 0){
-      memcpy(timemark,state->characters.memory,state->characters.size);
-      printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
-  }
-  if( strcmp(name,"order") == 0){
-      memset(stqrcode,0, sizeof(stqrcode));
-      memcpy(stqrcode,state->characters.memory,state->characters.size);
-      printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
-  }
+    struct ParserStruct *state = (struct ParserStruct *) userData;
+    state->depth--;
+    if( strcmp(name,"time_mark") == 0){
+        if(state->characters.memory != NULL) {
+            memcpy(timemark,state->characters.memory,state->characters.size);
+            printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }
+    }
+    if( strcmp(name,"order") == 0){
+        if(state->characters.memory != NULL) {
+            memset(stqrcode,0, sizeof(stqrcode));
+            memcpy(stqrcode,state->characters.memory,state->characters.size);
+            printf("%5lu   %10lu   %s %s\n", state->depth, state->characters.size, name, state->characters.memory);
+        }
+    }
 }
 #endif
 

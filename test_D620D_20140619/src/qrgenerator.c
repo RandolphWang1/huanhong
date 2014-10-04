@@ -9,10 +9,10 @@ struct payInfo qrpay_info;
 unsigned long long query_number = 0;
 char pos_imsi[20];
 
+char szQrcodeString[QRRESULT] = {0};
 int  generator_qrcode_to_bmp(int out, char* price)
 {
-    char szQrcodeString[1024] = {0};
-    char* szSourceString;
+    char* szSourceString = NULL;
     // code from d620d start
     int ret;
     int enc_mode;
@@ -79,20 +79,21 @@ int  generator_qrcode_to_bmp(int out, char* price)
     strcpy(qrpay_info.total_fee,price);
     //strcpy(qrpay_info.total_fee,"0.01");^M
     //strcpy(qrpay_info.order_subject,"ccc");
-    strcpy(qrpay_info.order_subject,"ALIPAY");
+    strcpy(qrpay_info.order_subject,"GoldenLakeCafe");
     strcpy(qrpay_info.order_time,"2014-08-0514:15:30");
-
+    memset(szQrcodeString, 0,sizeof(szQrcodeString)); 
     /* print the qr code from alipay */
     alipay_main((struct qr_result*)szQrcodeString, &qrpay_info, ALI_PRECREATE_ORDER);
     szSourceString = szQrcodeString;
-
-    /* print QR code on D620D */
-    //ret = PrintQR(10, 1, 2, szSourceString, 5, 5);
-    //ret = PrintQR(6, 1, 2, szSourceString, 5, 7);
-    ret = PrintQR(6, 3, 2, szSourceString, 50, 7);
-    if (0 > ret)
-    {
-        printf("the PrintQR return value is %d\n",ret);
+    if(szQrcodeString) {
+        /* print QR code on D620D */
+        //ret = PrintQR(10, 1, 2, szSourceString, 5, 5);
+        //ret = PrintQR(6, 1, 2, szSourceString, 5, 7);
+        ret = PrintQR(6, 3, 2, szSourceString, 50, 7);
+        if (0 > ret)
+        {
+            printf("the PrintQR return value is %d\n",ret);
+        }
     }
     return 0;
 }
@@ -153,17 +154,26 @@ void getIMSIconfig()
 }
 
 
-int alipay_query_serialno(unsigned long long queryNo)
+int alipay_query_single(unsigned long long queryNo)
 {
-    char query_serialno[1024] = {0};
     int ret = 0;
     getIMSIconfig();
     strcpy(qrpay_info.order_key,"11");
     qrpay_info.order_number = queryNo;
-    alipay_main((struct qr_result*)query_serialno, &qrpay_info, ALI_PRECREATE_QUERY_NO);
-    if(strcmp("TRADE_SUCCESS", query_serialno) == 0)
+    memset(szQrcodeString, 0,sizeof(szQrcodeString)); 
+    alipay_main((struct qr_result*)szQrcodeString, &qrpay_info, ALI_PRECREATE_QUERY_SINGLE);
+    if(strcmp("TRADE_SUCCESS", szQrcodeString) == 0)
         ret = 1;
     else
         ret = 0;
+    return ret;
+}
+
+int alipay_query_24h(char* query_24h)
+{
+    int ret = 0;
+    getIMSIconfig();
+    strcpy(qrpay_info.order_key,"11");
+    alipay_main((struct qr_result*)query_24h, &qrpay_info, ALI_PRECREATE_QUERY_24H);
     return ret;
 }

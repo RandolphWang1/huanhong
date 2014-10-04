@@ -83,15 +83,19 @@ char* time_mark = "1408001801550";
 //char* time_mark = "1408002548964";
 int alipay_precreate(char* precr, int* len, struct payInfo* order_info, int type)
 {
+    int ret = 0;
     if (type == ALI_PRECREATE_ORDER)
         //preorder
-        alipay_preorder(precr,len,order_info);
+        ret = alipay_preorder(precr,len,order_info);
     else if(type == ALI_PRECREATE_QUERY)
         //queryorder
         //alipay_queryorder(precr,order_info);
-        alipay_query(precr,len,order_info->imsi);
-    else if(type == ALI_PRECREATE_QUERY_NO)
-        alipay_queryorder(precr,len,order_info);
+        ret = alipay_query(precr,len,order_info->imsi);
+    else if(type == ALI_PRECREATE_QUERY_SINGLE)
+        ret = alipay_queryorder(precr,len,order_info);
+    else if(type == ALI_PRECREATE_QUERY_24H)
+        ret = alipay_query24h(precr,len,order_info->imsi);
+    return ret;
 }
 
 int alipay_preorder(char* precr, int* len, struct payInfo* order_info)
@@ -189,6 +193,39 @@ int alipay_query(char* precr, int* len, char* str_imsi)
         puts(hex_output);
 
         *len = sprintf(encrypt1wokey,"IMSI=%s&time_mark=%s", str_imsi, time_mark);
+        //*len = sprintf(https,"http://192.168.1.104:8180/qrcode/preorder/?IMSI=123456789012345&serial_number=12&total_fee=0.01&subject=ccc&order_time=2014-08-0211:21:20");
+        //*len = sprintf(https,"http://%s:%d/qrcode/preorder/?IMSI=%s&serial_number=%d&total_fee=%d&subject=%s&order_time=%s", jfserver, portnumber, IMSI, serial_number, jftotal_fee, jfsubject, order_time);
+        *len = sprintf(https,"http://%s:%d/qrcode/query/?%s&sign=%s",jfserver, portnumber, encrypt1wokey, hex_output);
+        puts(https);
+        memset(precr, 0, *len+1);
+        memcpy(precr, https, *len);
+        return *len;
+}
+
+/* 24H query */
+int alipay_query24h(char* precr, int* len, char* str_imsi)
+{
+
+        char https[1024];
+
+        char encrypt[1024];
+        char encrypt1wokey[1024];
+        md5_state_t state;
+        md5_byte_t digest[16];
+        char hex_output[16*2 + 1];
+        int di;
+        *len = sprintf(encrypt,"IMSI=%s#%s", str_imsi, jfkey);
+        printf("\nMD5 input:encrypt=%s", encrypt);
+
+        md5_init(&state);
+        md5_append(&state, (const md5_byte_t *)encrypt, strlen(encrypt));
+        md5_finish(&state, digest);
+        for (di = 0; di < 16; ++di)
+            sprintf(hex_output + di * 2, "%02x", digest[di]);
+        printf("\nencrypt output:");
+        puts(hex_output);
+
+        *len = sprintf(encrypt1wokey,"IMSI=%s", str_imsi);
         //*len = sprintf(https,"http://192.168.1.104:8180/qrcode/preorder/?IMSI=123456789012345&serial_number=12&total_fee=0.01&subject=ccc&order_time=2014-08-0211:21:20");
         //*len = sprintf(https,"http://%s:%d/qrcode/preorder/?IMSI=%s&serial_number=%d&total_fee=%d&subject=%s&order_time=%s", jfserver, portnumber, IMSI, serial_number, jftotal_fee, jfsubject, order_time);
         *len = sprintf(https,"http://%s:%d/qrcode/query/?%s&sign=%s",jfserver, portnumber, encrypt1wokey, hex_output);
