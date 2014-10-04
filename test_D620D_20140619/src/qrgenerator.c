@@ -7,6 +7,8 @@
 char qrQueryResult[16] = {0};
 struct payInfo qrpay_info;
 unsigned long long query_number = 0;
+unsigned long long query_number_idx = 1;
+unsigned long long old_query_number = 1;
 char pos_imsi[20];
 
 char szQrcodeString[QRRESULT] = {0};
@@ -27,7 +29,6 @@ int  generator_qrcode_to_bmp(int out, char* price)
     T_DATETIME tTime;
     char ticket_number[13]={0};
     char client_number[21]={0};
-    char serial_number[28]={0};
 
 #if 0
     //strcpy(qrpay_info.imsi,"460006922139942");
@@ -64,18 +65,24 @@ int  generator_qrcode_to_bmp(int out, char* price)
     strcpy(qrpay_info.order_key,"11");
     /* Time for D620D Pos */
     GetDateTime(&tTime);
-    if(query_number == 0) {
+    //if(query_number == 0) { //if query_number != 0 then time will nto changed, bug
         sprintf(ticket_number,"%s%s%s%s%s00",tTime.year,tTime.month,tTime.day,tTime.hour,tTime.minute);
         /* use last 6-bit of IMSI */
         strncpy(client_number, &(qrpay_info.imsi[10]), 6);
         strcat(client_number, ticket_number);
         query_number = (unsigned long long)atoll(client_number);
+    if(old_query_number == query_number/100 ) {
+        query_number = query_number + query_number_idx;
+        query_number_idx++;
+    } else {
+        query_number_idx = 1;
+        old_query_number = query_number/100; 
     }
+    //}
 
+        
 
-    query_number = query_number + 1;
     qrpay_info.order_number = query_number;
-    sprintf(serial_number,"NO:%lld\n",query_number);
     strcpy(qrpay_info.total_fee,price);
     //strcpy(qrpay_info.total_fee,"0.01");^M
     //strcpy(qrpay_info.order_subject,"ccc");
