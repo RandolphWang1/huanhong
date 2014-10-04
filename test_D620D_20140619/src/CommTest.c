@@ -574,17 +574,17 @@ void SetCommParam()
         TextOutByPixel(105, 100, "2.G网");
 #endif
 
-        ShowBmpFile(90, 95, "pic/button.bmp");
-        TextOutByPixel(105, 100, "0.关机");
+        ShowBmpFile(90, 75, "pic/button.bmp");
+        TextOutByPixel(105, 80, "0.关机");
 
-        ShowBmpFile(90, 130, "pic/button.bmp");
-        TextOutByPixel(105, 135, "1.支付宝");
+        ShowBmpFile(90, 110, "pic/button.bmp");
+        TextOutByPixel(105, 115, "1.支付宝");
 
-        ShowBmpFile(90, 165, "pic/button.bmp");
-        TextOutByPixel(105, 170, "2.逐单查询");
+        ShowBmpFile(90, 145, "pic/button.bmp");
+        TextOutByPixel(105, 150, "2.逐单查询");
 
-        ShowBmpFile(90, 200, "pic/button.bmp");
-        TextOutByPixel(105, 205, "3.日结");
+        ShowBmpFile(90, 180, "pic/button.bmp");
+        TextOutByPixel(105, 185, "3.日结");
 #if 0
         ShowBmpFile(90, 165, "pic/button.bmp");
         TextOutByPixel(105, 170, "4.C网");
