@@ -17,6 +17,7 @@ void querySingle(void);
 void *thr_fn(void* arg);
 void printTail(char* price);
 char* Moneyformat(char* buf);
+unsigned int Money2int(char* buf);
 void print_logo();
 void query24h(void);
 char result24h[QRRESULT] = {0};
@@ -1060,14 +1061,28 @@ char* Moneyformat(char* buf)
     return buf;
 }
 
+unsigned int Money2int(char* buf)
+{
+    char fee[16] = {0};
+    int len = strlen(buf);
+    int feeint = 0;
+    memcpy(fee,buf,len-3);  
+    memcpy(fee+len-3,buf+len-2,2);
+
+    feeint = (unsigned int)atoi(fee);
+    printf("Money2int fee:%s, feeint:%d\n", fee, feeint);
+    return feeint;
+}
 
 void printTail(char* price)
 {
     int ret = 0;
     char printBuff[50];
 START_PRINT:
-    if(CheckPrinter() != TRUE)
+    if(CheckPrinter() != TRUE) {
         printf("the printer is not working well!\n");
+        goto end1;
+    }
     ClearPrintBuff();
     SetPrintIndent(0);
     SetPrintFont(32);
@@ -1129,8 +1144,10 @@ void print_logo()
     char PrintBuff[40];
     int ret = 0;
 START_PRINT:
-    if(CheckPrinter() != TRUE)
+    if(CheckPrinter() != TRUE) {
         printf("the printer is not working well!\n");
+        goto end1;
+    }
     ClearPrintBuff();
     PrintEmptyLine(2);
     memset(PrintBuff,0,sizeof(PrintBuff));
@@ -1279,6 +1296,7 @@ void *thr_fn(void* arg)
 START_PRINT:
                     if(CheckPrinter() != TRUE) {
                         printf("the printer is not working well!\n");
+                        pthread_mutex_unlock(&prmutex);
                         goto end1;
                     }
                     ClearPrintBuff();
@@ -1405,6 +1423,7 @@ void querySingle(void)
         pthread_mutex_lock(&prmutex);
         if(CheckPrinter() != TRUE) {
             printf("the printer is not working well!\n");
+            pthread_mutex_unlock(&prmutex);
             goto end1;
         }
         ClearPrintBuff();
@@ -1454,6 +1473,7 @@ void query24h(void)
 {
     int ret = 0, i;
     int trade_num;
+    char trade_numstr[64] = {0};
     char *trade_ptr[2000] = {NULL}; 
     char *trade_detail[5] = {NULL}; 
     char pos_date[12];
@@ -1461,6 +1481,8 @@ void query24h(void)
     T_DATETIME tTime;
     struct receipt_info pos_receipt;
     char PrintBuff[100];
+    unsigned int total24h_fee = 0;
+    char total24h_feestr[16] = {0};
     Clear();
     TextOut(0, 3, ALIGN_LEFT, "查询近24小时成功交易");
     ret = alipay_query_24h(result24h);
@@ -1470,6 +1492,7 @@ void query24h(void)
     pthread_mutex_lock(&prmutex);
     if(CheckPrinter() != TRUE) {
         printf("the printer is not working well!\n");
+        pthread_mutex_unlock(&prmutex);
         goto end1;
     }
     ClearPrintBuff();
@@ -1491,6 +1514,16 @@ void query24h(void)
     strcpy(PrintBuff,"------------------");
     FillPrintBuff(PrintBuff);
 
+    ret = StartPrint();
+    DebugOut("print error code:[%d]\n", ret);
+    if(ret != 0) {   
+        goto end1;
+    }
+    ClearPrintBuff();
+    memset(PrintBuff,0,sizeof(PrintBuff));
+    SetPrintIndent(0);
+    SetPrintFont(24);
+
     for (i=0; i<trade_num; i++){
         printf("number %d trade:%s\n",i,trade_ptr[i]);
         SplitStr(trade_ptr[i],trade_detail,",");
@@ -1504,6 +1537,9 @@ void query24h(void)
         strcpy(pos_receipt.trade_no,trade_detail[2]);
         strcpy(pos_receipt.total_fee,trade_detail[3]);
 
+        total24h_fee += Money2int(trade_detail[3]);
+
+        printf("total24h_fee:%d", total24h_fee);
         strcpy(PrintBuff,"序列号：");
         strcat(PrintBuff, pos_receipt.serial_number);
         FillPrintBuff(PrintBuff);	   
@@ -1518,8 +1554,44 @@ void query24h(void)
         FillPrintBuff(PrintBuff);	   
         strcpy(PrintBuff,"------------------");
         FillPrintBuff(PrintBuff);
+        if(i%5 == 0)  {
+            //because of FillPrintBuff may overflow so print segmentlly
+            ret = StartPrint();
+            DebugOut("print error code:[%d]\n", ret);
+            if(ret != 0) {   
+                goto end1;
+            }
+            ClearPrintBuff();
+            memset(PrintBuff,0,sizeof(PrintBuff));
+            SetPrintIndent(0);
+            SetPrintFont(24);
+        }
     }
+    
+    strcpy(PrintBuff,"=====================");
+    FillPrintBuff(PrintBuff);
+    ret = StartPrint();
+    DebugOut("print error code:[%d]\n", ret);
+    if(ret != 0) {   
+        goto end1;
+    }
+    ClearPrintBuff();
+    memset(PrintBuff,0,sizeof(PrintBuff));
+    SetPrintIndent(0);
+    SetPrintFont(32);
 
+    sprintf(total24h_feestr,"%d", total24h_fee);
+    printf("\nbefore:%s\n", total24h_feestr);
+    Moneyformat(total24h_feestr);
+    printf("\nafter:%s\n", total24h_feestr);
+    printf("total24h_feestr:%s", total24h_feestr);
+    strcpy(PrintBuff,"总金额：");
+    strcat(PrintBuff, total24h_feestr);
+    FillPrintBuff(PrintBuff);	   
+    //memset(PrintBuff,0,sizeof(PrintBuff));
+    sprintf(trade_numstr, "总单数:%d", trade_num);
+    strcpy(PrintBuff, trade_numstr);
+    FillPrintBuff(PrintBuff);	   
     PrintEmptyLine(3);	 
     ret = StartPrint();
     pthread_mutex_unlock(&prmutex);
@@ -1536,3 +1608,5 @@ end1:
     WaitKey(2000);
 normal:
 }
+
+
