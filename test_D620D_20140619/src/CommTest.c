@@ -529,9 +529,9 @@ void SetCommParam()
     char *trade_detail[5] = {NULL}; 
     struct receipt_info pos_receipt;
     char PrintBuff[30];
-    T_DATETIME tTime;
-    char pos_date[12];
-    char pos_time[12];
+	T_DATETIME tTime;
+	char pos_date[12];
+	char pos_time[12];
 #endif
 
 #if 0 //def ALIPAY_QUERY
@@ -555,23 +555,23 @@ void SetCommParam()
         FD_SET(socket_fd, &rset);
         address_length = sizeof(address);
 #endif
-        Clear();
+		Clear();
 
         printf("---------SetCommParam() inside the while loop----\n");
-        SetScrFont(FONT20, WHITE);
+		SetScrFont(FONT20, WHITE);
 
 
-        //标题
-        //ShowBmpFile(0, 25, "pic/title.bmp");
-        //TextOutByPixel(95, 30, "盈润捷通");
-        TextOutByPixel(115, 30, "盈润捷通");
+		//标题
+		//ShowBmpFile(0, 25, "pic/title.bmp");
+		//TextOutByPixel(95, 30, "盈润捷通");
+		TextOutByPixel(115, 30, "盈润捷通");
 #if 0
-        //菜单
-        ShowBmpFile(90, 60, "pic/button.bmp");
-        TextOutByPixel(105, 65, "1.拨号");
+		//菜单
+		ShowBmpFile(90, 60, "pic/button.bmp");
+		TextOutByPixel(105, 65, "1.拨号");
 
-        ShowBmpFile(90, 95, "pic/button.bmp");
-        TextOutByPixel(105, 100, "2.G网");
+		ShowBmpFile(90, 95, "pic/button.bmp");
+		TextOutByPixel(105, 100, "2.G网");
 #endif
 
         ShowBmpFile(90, 75, "pic/button.bmp");
@@ -587,8 +587,8 @@ void SetCommParam()
         TextOutByPixel(105, 185, "3.日结");
 #if 0
         ShowBmpFile(90, 165, "pic/button.bmp");
-        TextOutByPixel(105, 170, "4.C网");
-
+		TextOutByPixel(105, 170, "4.C网");
+		
         ShowBmpFile(90, 200, "pic/button.bmp");
         TextOutByPixel(105, 205, "5.wifi网");
 #endif
@@ -606,25 +606,25 @@ void SetCommParam()
                             &address_length)) > -1)
             {
 
-                nbytes = read(connection_fd, buffer, 1024);
-                buffer[nbytes] = 0;
+    nbytes = read(connection_fd, buffer, 1024);
+    buffer[nbytes] = 0;
 
-                printf("MESSAGE FROM ALIPAY: %s\n", buffer);
-                //nbytes = snprintf(buffer, 256, "hello from the server");
-                //write(connection_fd, buffer, nbytes);
-                /* start print out the payment query result */
+    printf("MESSAGE FROM ALIPAY: %s\n", buffer);
+    //nbytes = snprintf(buffer, 256, "hello from the server");
+    //write(connection_fd, buffer, nbytes);
+    /* start print out the payment query result */
 
-                trade_num = SplitStr(buffer,trade_ptr,"|");
+    trade_num = SplitStr(buffer,trade_ptr,"|");
 
-                //write(tty_data.posfd,alipay_receipt,sizeof(alipay_receipt));
-                ///write(tty_data.posfd,"\n",1);
-                /* get system time */
-                //time(&td);
-                //ptr = localtime(&td);
-                //strftime(pos_date,sizeof(pos_date),"%Y-%m-%d",ptr);
-                //strftime(pos_time,sizeof(pos_time),"%H:%M:%S",ptr);
-                GetDateTime(&tTime);
-                sprintf(pos_date,"%s%s-%s-%s",tTime.century,tTime.year,tTime.month,tTime.day);
+    //write(tty_data.posfd,alipay_receipt,sizeof(alipay_receipt));
+    ///write(tty_data.posfd,"\n",1);
+	/* get system time */
+	//time(&td);
+	//ptr = localtime(&td);
+	//strftime(pos_date,sizeof(pos_date),"%Y-%m-%d",ptr);
+	//strftime(pos_time,sizeof(pos_time),"%H:%M:%S",ptr);
+        GetDateTime(&tTime);
+        sprintf(pos_date,"%s%s-%s-%s",tTime.century,tTime.year,tTime.month,tTime.day);
         sprintf(pos_time,"%s:%s:%s",tTime.hour,tTime.minute,tTime.second);
 	
     for (i=0; i<trade_num; i++){
@@ -697,13 +697,11 @@ START_PRINT:
         DebugOut("print error code:[%d]\n", ret);
         if(ret != 0)
         {   
-#if 0
             if(ret == -1) 
                 goto START_PRINT;
             else if(ret == -2) 
                 goto end2;
             else if(ret == -3) 
-#endif
                 goto end1;
         }   
         goto normal;
@@ -728,38 +726,39 @@ end2:
 normal:
     }
     close(connection_fd);
-            }
-        }
+    }
+}
 #endif
         printf("go before SetCommParam WaitLimitKey\n");
-        ucKey = WaitLimitKey("\x00\x01\x02\x03\x05\x12", 6, 0);
+        ucKey = WaitLimitKey("\x00\x01\x02\x03\x12", 5, 0);
         printf("go after SetCommParam WaitLimitKey\n");
         memset(sKeyName, 0, sizeof(sKeyName));
         GetKeyName(ucKey, sKeyName);
         DebugOut("press key: %s\n", sKeyName);
 
-        switch(ucKey)
-        {
-            case KEY_CANCEL:
-                return;
-                break;
-            case KEY_0:
-                Clear();
-                TextOut(0, 3, ALIGN_CENTER, "是否关机?");
-                TextOut(0, 4, ALIGN_CENTER, "1.是   其他键.否"); 
-                if(WaitKey(0) == KEY_1)
-                    ShutDown(); 
-                break;
+		switch(ucKey)
+		{
+			case KEY_CANCEL:
+				return;
+				break;
+                        case KEY_0:
+                               Clear();
+                               TextOut(0, 3, ALIGN_CENTER, "是否关机?");
+                               TextOut(0, 4, ALIGN_CENTER, "1.是   其他键.否"); 
+                               if(WaitKey(0) == KEY_1)
+                                           ShutDown(); 
+                               break;
 #if 0
-            case KEY_1:
-                SetModem();
-                break;
-            case KEY_2:
-                SetGPRS();
-                break;
+			case KEY_1:
+				SetModem();
+				break;
+			case KEY_2:
+				SetGPRS();
+				break;
 #endif
             case KEY_1:
-                if (system("ifconfig eth0") != 0) 
+                //this part should think about more
+                //if (system("ifconfig eth0") != 0) 
                     if (system("ifconfig ppp0") != 0) {
                         Clear(); 
                         TextOut(0, 5, ALIGN_CENTER, "稍等，正在初始化移动网络...");
@@ -771,213 +770,186 @@ normal:
                 TextOut(0, 0, ALIGN_CENTER, "欢迎使用支付宝钱包支付");
 
 #if 0
-                TextOut(0, 4, ALIGN_LEFT, "  1.自动获取IP");
-                TextOut(0, 5, ALIGN_LEFT, "  2.固定设置IP");
-                TextOut(0, 6, ALIGN_LEFT, "  3.查看当前ip设置");
-                TextOut(0, 7, ALIGN_LEFT, "  4.移动支付");
-                ucKey = WaitLimitKey("\x12\x01\x02\x03\x04", 5, 0);
+				TextOut(0, 4, ALIGN_LEFT, "  1.自动获取IP");
+				TextOut(0, 5, ALIGN_LEFT, "  2.固定设置IP");
+				TextOut(0, 6, ALIGN_LEFT, "  3.查看当前ip设置");
+				TextOut(0, 7, ALIGN_LEFT, "  4.移动支付");
+				ucKey = WaitLimitKey("\x12\x01\x02\x03\x04", 5, 0);
 #endif
-                TextOut(0, 4, ALIGN_CENTER, "请按OK键输入金额");
-                TextOut(0, 5, ALIGN_CENTER, "按CANCEL键或者BACK键返回");
-                ucKey = WaitLimitKey("\x12\x0E\x0F\x05", 4, 0);
-                if(ucKey == KEY_ENTER)
-                    SetMoney();
-                else if(ucKey == KEY_CANCEL || ucKey == KEY_BACKSPACE)
-                    return ;
-                break;
+				TextOut(0, 4, ALIGN_CENTER, "请按OK键输入金额");
+				TextOut(0, 5, ALIGN_CENTER, "按CANCEL键或者BACK键返回");
+				ucKey = WaitLimitKey("\x12\x0E\x0F", 3, 0);
+				if(ucKey == KEY_ENTER)
+					SetMoney();
+				else if(ucKey == KEY_CANCEL || ucKey == KEY_BACKSPACE)
+					return ;
+				break;
 #if 0
-                if(ucKey == KEY_1)
-                {
-                    gTerm.bAutoIP = TRUE;
-                    if(WriteData("test-term.dat", &gTerm, sizeof(T_TERM), 0) == FALSE)
-                    {
-                        Clear();                      
-                        SetScrFont(FONT20, WHITE);
-                        TextOut(0, 3, ALIGN_CENTER, "保存文件出错"); 
-                        TextOut(0, 4, ALIGN_CENTER, "请稍后重试"); 
-                        FailBeep();
-                        WaitKey(2000);
-                        //goto FAILED;
-                    }
-                    Clear();;
-                    SetScrFont(FONT20, WHITE);
-                    TextOut(0, 2, ALIGN_CENTER, "主机IP");
-                    TextOut(0, 8, ALIGN_CENTER, "保持不变请按确认键");
-                    SetScrFont(FONT20, RED);
-                    if(InputIP(8, 5, gTerm.tEthernet.szServerIP) != OK)
-                        return ;
+				if(ucKey == KEY_1)
+				{
+					gTerm.bAutoIP = TRUE;
+					if(WriteData("test-term.dat", &gTerm, sizeof(T_TERM), 0) == FALSE)
+					{
+						Clear();                      
+						SetScrFont(FONT20, WHITE);
+						TextOut(0, 3, ALIGN_CENTER, "保存文件出错"); 
+						TextOut(0, 4, ALIGN_CENTER, "请稍后重试"); 
+						FailBeep();
+						WaitKey(2000);
+				    	//goto FAILED;
+					}
+					Clear();;
+					SetScrFont(FONT20, WHITE);
+					TextOut(0, 2, ALIGN_CENTER, "主机IP");
+					TextOut(0, 8, ALIGN_CENTER, "保持不变请按确认键");
+					SetScrFont(FONT20, RED);
+					if(InputIP(8, 5, gTerm.tEthernet.szServerIP) != OK)
+						return ;
+					
+					Clear();;
+					SetScrFont(FONT20, WHITE);
+					TextOut(0, 3, ALIGN_CENTER, "主机端口");
+					TextOut(0, 8, ALIGN_CENTER, "保持不变请按确认键");
+					SetScrFont(FONT20, RED);
+					ret = Input(7, 5, gTerm.tEthernet.szServerPort, 5, IME_NUMBER, BLACK, GREEN, FALSE, FALSE, FALSE);
+					if(ret != OK)
+						return ;
 
-                    Clear();;
-                    SetScrFont(FONT20, WHITE);
-                    TextOut(0, 3, ALIGN_CENTER, "主机端口");
-                    TextOut(0, 8, ALIGN_CENTER, "保持不变请按确认键");
-                    SetScrFont(FONT20, RED);
-                    ret = Input(7, 5, gTerm.tEthernet.szServerPort, 5, IME_NUMBER, BLACK, GREEN, FALSE, FALSE, FALSE);
-                    if(ret != OK)
-                        return ;
-
-
-                    system("/usr/udhcp/udhcpc");
-                    Clear();
-                    TextOut(0, 5, ALIGN_CENTER, "设置成功");
-                    WaitKey(3000);
-                }
-                else if(ucKey == KEY_2)
-                {
-                    gTerm.bAutoIP = FALSE;
-                    if(WriteData("test-term.dat", &gTerm, sizeof(T_TERM), 0) == FALSE)
-                    {
-                        Clear();                      
-                        SetScrFont(FONT20, WHITE);
-                        TextOut(0, 3, ALIGN_CENTER, "保存文件出错"); 
-                        TextOut(0, 4, ALIGN_CENTER, "请稍后重试"); 
-                        FailBeep();
-                        WaitKey(2000);
-                        //goto FAILED;
-                    }
-                    SetEthernet();
-                }
-                else if(ucKey == KEY_3)
-                    ViewIpSet();
-                else if(ucKey == KEY_4)
-                    SetMoney();
-                else if(ucKey == KEY_CANCEL)
-                    return ;
-                break;
-            case KEY_4:
-                SetCDMA();
-                break;	
+					
+					system("/usr/udhcp/udhcpc");
+					Clear();
+					TextOut(0, 5, ALIGN_CENTER, "设置成功");
+					WaitKey(3000);
+				}
+				else if(ucKey == KEY_2)
+				{
+					gTerm.bAutoIP = FALSE;
+					if(WriteData("test-term.dat", &gTerm, sizeof(T_TERM), 0) == FALSE)
+					{
+						Clear();                      
+						SetScrFont(FONT20, WHITE);
+						TextOut(0, 3, ALIGN_CENTER, "保存文件出错"); 
+						TextOut(0, 4, ALIGN_CENTER, "请稍后重试"); 
+						FailBeep();
+						WaitKey(2000);
+				    	//goto FAILED;
+					}
+					SetEthernet();
+				}
+				else if(ucKey == KEY_3)
+					ViewIpSet();
+				else if(ucKey == KEY_4)
+					SetMoney();
+				else if(ucKey == KEY_CANCEL)
+					return ;
+				break;
 #endif
             case KEY_2:
                 querySingle();
                 break;	
             case KEY_3:
-                printf("before query24h\n");
                 query24h();
-                printf("after query24h\n");
-                break;	
+                break;
+			case KEY_4:
+				SetCDMA();
+				break;	
             case KEY_5:
                 while(1)
-                {
-                    Clear(); 
-                    TextOut(0, 3, ALIGN_CENTER, "请选择WiFi连接方式");
-                    TextOut(0, 4, ALIGN_CENTER, "1.手动设置");
-                    TextOut(0, 5, ALIGN_CENTER, "2.自动设置");
-                    TextOut(0, 6, ALIGN_CENTER, "3.AT+CSQ");
+                   {
+					Clear(); 
+					TextOut(0, 3, ALIGN_CENTER, "请选择WiFi连接方式");
+					TextOut(0, 4, ALIGN_CENTER, "1.手动设置");
+					TextOut(0, 5, ALIGN_CENTER, "2.自动设置");
 
-                    ucKey = WaitLimitKey("\x01\x02\x03\x12", 4, 0);
-                    if ('\x01' == ucKey)
-                    {
-                        gTerm.bAutoWifi = FALSE;
-                        Set_Wifi();	
-                    }
-                    if ('\x02' == ucKey)
-                    {
-                        gTerm.bAutoWifi = TRUE;
-                        Set_Wifi_Auto();	
-                    }
-                    if ('\x03' == ucKey)
-                    {
-                        int handle = 0;
-                        char* CSQ = "AT+CSQ";
-                        char buf[100] = {0};
-                        int count = 0;
-#if 0
-                        handle = SERIAL_Open("/dev/ttyS0", 115200);
-                        printf("SERIAL_Open %d\n", handle);
-                        if(handle != -1) {
-                            count = SERIAL_Write(handle, CSQ, strlen(CSQ));
-                            printf("write count %d\n", count);
-                            count = SERIAL_Read(handle, buf, 100);
-                            printf("read count %d:%s\n", count,buf);
-
-                        } 
-#else
-                        count = WriteComm(CSQ,strlen(CSQ),0);
-                        printf("write count %d\n", count);
-                        wait(500);
-                        count = ReadComm(buf,100);
-                        printf("read count %d:%s\n", count,buf);
-#endif
-
-                    }
-                    if ('\x12' == ucKey)
-                        break;
-                }
+	                ucKey = WaitLimitKey("\x01\x02\x12", 8, 0);
+	                if ('\x01' == ucKey)
+	                	{
+							gTerm.bAutoWifi = FALSE;
+	                     	Set_Wifi();	
+	                	}
+	                if ('\x02' == ucKey)
+	                	{
+							gTerm.bAutoWifi = TRUE;
+	                     	Set_Wifi_Auto();	
+	                	}
+	                if ('\x12' == ucKey)
+                            break;
+				}
                 break;
-        }
+
+		}
 #ifdef ALIPAY_QUERY
 #if 0
-        if (retval == -1) {
-            printf("select function error!\n");
-            return ERROR;
-        } else {
-            continue;
-        }
+           if (retval == -1) {
+                printf("select function error!\n");
+                return ERROR;
+           } else {
+               continue;
+           }
 #endif
 #endif
-    }
+	}
 }
 
 int CommTest()
 {
-    UCHAR ucKey;
-    char sKeyName[20];
+	UCHAR ucKey;
+	char sKeyName[20];
 
-    ClearKbd();
-    printf("+++++++CommTest() outside while loop+++\n");
-    while(1)
-    {
-        Clear();
+	ClearKbd();
+        printf("+++++++CommTest() outside while loop+++\n");
+	while(1)
+	{
+		Clear();
 
         printf("+++++++CommTest() inside while loop+++\n");
-        SetScrFont(FONT20, WHITE);
+		SetScrFont(FONT20, WHITE);
 
-        //标题
-        //ShowBmpFile(0, 25, "pic/title.bmp");
-        TextOutByPixel(100, 30, "通讯测试");
+		//标题
+		//ShowBmpFile(0, 25, "pic/title.bmp");
+		TextOutByPixel(100, 30, "通讯测试");
 
-        //菜单
-        ShowBmpFile(30, 60, "pic/button.bmp");
-        TextOutByPixel(45, 65, "1.拨号测试");
+		//菜单
+		ShowBmpFile(30, 60, "pic/button.bmp");
+		TextOutByPixel(45, 65, "1.拨号测试");
 
-        ShowBmpFile(30, 95, "pic/button.bmp");
-        TextOutByPixel(45, 100, "2.G网测试");
+		ShowBmpFile(30, 95, "pic/button.bmp");
+		TextOutByPixel(45, 100, "2.G网测试");
 
-        ShowBmpFile(30, 130, "pic/button.bmp");
-        TextOutByPixel(45, 135, "3.以太网");
-
-        ShowBmpFile(30, 165, "pic/button.bmp");
-        TextOutByPixel(45, 170, "4.C网测试");
-
+		ShowBmpFile(30, 130, "pic/button.bmp");
+		TextOutByPixel(45, 135, "3.以太网");
+		
+		ShowBmpFile(30, 165, "pic/button.bmp");
+		TextOutByPixel(45, 170, "4.C网测试");
+		
         ShowBmpFile(30, 200, "pic/button.bmp");
         TextOutByPixel(45, 205, "5.wifi测试");
 
         ShowBmpFile(170, 60, "pic/button.bmp");
         TextOutByPixel(185, 65, "6.参数设置");
 
-        ucKey = WaitLimitKey("\x01\x02\x03\x04\x05\x06\x12", 7, 0);
-        memset(sKeyName, 0, sizeof(sKeyName));
-        GetKeyName(ucKey, sKeyName);
-        DebugOut("press key: %s\n", sKeyName);
+		ucKey = WaitLimitKey("\x01\x02\x03\x04\x05\x06\x12", 7, 0);
+		memset(sKeyName, 0, sizeof(sKeyName));
+		GetKeyName(ucKey, sKeyName);
+		DebugOut("press key: %s\n", sKeyName);
 
-        switch(ucKey)
-        {
-            case KEY_CANCEL:
-                return OK;
-                break;
-            case KEY_1:
-                ModemTest();
-                break;
-            case KEY_2:
-                GprsTest();
-                break;
-            case KEY_3:
-                EthernetTest();
-                break;
-            case KEY_4:
-                CDMACommTest();
-                break;	
+		switch(ucKey)
+		{
+			case KEY_CANCEL:
+				return OK;
+				break;
+			case KEY_1:
+				ModemTest();
+				break;
+			case KEY_2:
+				GprsTest();
+				break;
+			case KEY_3:
+				EthernetTest();
+				break;
+			case KEY_4:
+				CDMACommTest();
+				break;	
             case KEY_5:
                 WifiCommTest();
                 break;
@@ -985,9 +957,9 @@ int CommTest()
                 SetCommParam();
                 break;
 
-        }
-    }
-    return OK;
+		}
+	}
+	return OK;
 }
 
 
@@ -1006,15 +978,15 @@ int SetMoney()
     SetScrFont(FONT20, RED);
     ret = InputMoney(8, 5, buff,20); 
     if(ret < 0)
-        goto FAILED;
+    	goto FAILED;
 
-    printf("\nbefore:%s\n", buff);
+	printf("\nbefore:%s\n", buff);
     Moneyformat(buff);
     printf("\nafter:%s\n", buff);
     pthread_mutex_lock(&prmutex);
     print_logo();
     generator_qrcode_to_bmp(1,buff);
-    system(buff);	 
+	system(buff);	 
 
     OkBeep();
     Clear();
@@ -1028,7 +1000,7 @@ int SetMoney()
 
 FAILED:
 
-    SetScrFont(FONT20, WHITE);
+	SetScrFont(FONT20, WHITE);
     if(ret == -1)
         TextOut(2, 6, ALIGN_CENTER, "error input");
     else if (ret == -3) {
@@ -1037,38 +1009,48 @@ FAILED:
     }
     else 
         TextOut(2, 6, ALIGN_CENTER, "unknow");
-    WaitKey(2000);
-    printf("SetMoney failed ret;%d\n", ret);
-    return ERROR;
+	WaitKey(2000);
+	printf("SetMoney failed ret;%d\n", ret);
+	return ERROR;
 }
 
 char* Moneyformat(char* buf)
 {   
     int len = strlen(buf);
     if(len > 2) {  // RMB >1.00
-        memmove(buf+len-1, buf+len-2,2);
-        buf[len-2] = '.';
+    memmove(buf+len-1, buf+len-2,2);
+    buf[len-2] = '.';
     } else if (len ==2 ) { //0.09 RMB < 0.99
-        memmove(buf+2,buf,2);
-        buf[1] = '.';
-        buf[0] = '0';
+    memmove(buf+2,buf,2);
+    buf[1] = '.';
+    buf[0] = '0';
     } else if (len ==1)  {
-        memmove(buf+3,buf,1);
-        buf[2] = '0';
-        buf[1] = '.';
-        buf[0] = '0';
+    memmove(buf+3,buf,1);
+    buf[2] = '0';
+    buf[1] = '.';
+    buf[0] = '0';
     }
     return buf;
 }
 
 unsigned int Money2int(char* buf)
 {
-    char fee[16] = {0};
+    char fee[18] = {0};
     int len = strlen(buf);
     int feeint = 0;
-    memcpy(fee,buf,len-3);  
-    memcpy(fee+len-3,buf+len-2,2);
-
+    printf("Money2int buf:%s, strlen(buf):%d\n", buf, len);
+    if(buf[len-3] == '.'){ //for these have fen like 1.01 or 0.01
+        memcpy(fee,buf,len-3);  
+        memcpy(fee+len-3,buf+len-2,2);
+    } else if(buf[len-2] == '.'){ //for these have jiao like 1.1 or 0.1
+        memcpy(fee,buf,len-2);  
+        fee[len-2] = buf[len-1];
+        fee[len-1] = '0';     //for we must make 1.1 to 110
+    } else {
+        memcpy(fee,buf,len);
+        fee[len] = '0';   
+        fee[len + 1]  = '0';  
+    }
     feeint = (unsigned int)atoi(fee);
     printf("Money2int fee:%s, feeint:%d\n", fee, feeint);
     return feeint;
@@ -1102,7 +1084,7 @@ START_PRINT:
     FillPrintBuff(printBuff);
     PrintEmptyLine(2);
 
-
+    
 
 
 
@@ -1110,14 +1092,12 @@ START_PRINT:
     ret =StartPrint();
     DebugOut("print error code:[%d]\n", ret);
     if(ret != 0)
-    { 
-#if 0  
+    {   
         if(ret == -1) 
             goto START_PRINT;
         else if(ret == -2) 
             goto end2;
         else if(ret == -3) 
-#endif
             goto end1;
     }   
     return;
@@ -1139,6 +1119,7 @@ end2:
     WaitKey(2000);
     return;
 }
+#ifdef ALIPAY_GOLDENLAKE
 void print_logo()
 {
     char PrintBuff[40];
@@ -1169,7 +1150,7 @@ START_PRINT:
     SetPrintFont(32);
     strcpy(PrintBuff,"    支付宝钱包支付");
     FillPrintBuff(PrintBuff);
-
+ 
 
 
 
@@ -1177,14 +1158,12 @@ START_PRINT:
     ret =StartPrint();
     DebugOut("print error code:[%d]\n", ret);
     if(ret != 0)
-    {
-#if 0   
+    {   
         if(ret == -1) 
             goto START_PRINT;
         else if(ret == -2) 
             goto end2;
         else if(ret == -3) 
-#endif
             goto end1;
     }   
     return;
@@ -1206,7 +1185,75 @@ end2:
     WaitKey(2000);
     return;
 }
+#endif
 
+#ifdef ALIPAY_JIUYI
+void print_logo()
+{
+    char PrintBuff[40];
+    int ret = 0;
+START_PRINT:
+    if(CheckPrinter() != TRUE) {
+        printf("the printer is not working well!\n");
+        goto end1;
+    }
+    ClearPrintBuff();
+    PrintEmptyLine(2);
+    memset(PrintBuff,0,sizeof(PrintBuff));
+    SetPrintIndent(0);
+    SetPrintFont(48);
+    strcpy(PrintBuff,"   九亿粥饼店");
+    FillPrintBuff(PrintBuff);
+    SetPrintFont(48);
+    strcpy(PrintBuff,"     JIU YI");
+    FillPrintBuff(PrintBuff);
+    SetPrintFont(24);
+    strcpy(PrintBuff,"  北京市石景山区实兴大街5号");
+    FillPrintBuff(PrintBuff);
+    strcpy(PrintBuff,"      订餐电话：88939699");
+    FillPrintBuff(PrintBuff);
+    strcpy(PrintBuff,"-----------------------------------");
+    FillPrintBuff(PrintBuff);
+    PrintEmptyLine(2);
+    SetPrintFont(32);
+    strcpy(PrintBuff,"    支付宝钱包支付");
+    FillPrintBuff(PrintBuff);
+ 
+
+
+
+    //开始打印    
+    ret =StartPrint();
+    DebugOut("print error code:[%d]\n", ret);
+    if(ret != 0)
+    {   
+        if(ret == -1) 
+            goto START_PRINT;
+        else if(ret == -2) 
+            goto end2;
+        else if(ret == -3) 
+            goto end1;
+    }   
+    return;
+end1:  
+
+    FailBeep(); 
+    ClearLine(1, 9);
+    TextOut(0, 3, ALIGN_CENTER, "请检查打印机"); 
+    TextOut(0, 4, ALIGN_CENTER, "打印失败");
+    WaitKey(2000);
+    return;
+
+end2:  
+
+    FailBeep(); 
+    ClearLine(1, 9);
+    TextOut(0, 3, ALIGN_CENTER, "电量不足"); 
+    TextOut(0, 4, ALIGN_CENTER, "无法执行打印");
+    WaitKey(2000);
+    return;
+}
+#endif
 
 //move Query print to a thread. to avoid missing key issue.
 #ifdef ALIPAY_QUERY
@@ -1352,13 +1399,11 @@ START_PRINT:
                     DebugOut("print error code:[%d]\n", ret);
                     if(ret != 0)
                     {   
-#if 0
                         if(ret == -1) 
                             goto START_PRINT;
                         else if(ret == -2) 
                             goto end2;
                         else if(ret == -3) 
-#endif
                             goto end1;
                     }   
                     goto normal;
@@ -1420,6 +1465,7 @@ void querySingle(void)
         Clear();
         TextOut(0, 2, ALIGN_CENTER, "该单交易已成功");
         TextOut(0, 3, ALIGN_CENTER, queryNo); 
+START_PRINT:
         pthread_mutex_lock(&prmutex);
         if(CheckPrinter() != TRUE) {
             printf("the printer is not working well!\n");
@@ -1442,13 +1488,11 @@ void querySingle(void)
         DebugOut("print error code:[%d]\n", ret);
         if(ret != 0)
         {   
-#if 0
             if(ret == -1) 
                 goto START_PRINT;
             else if(ret == -2) 
                 goto end2;
             else if(ret == -3) 
-#endif
                 goto end1;
         }   
         goto normal;
@@ -1459,6 +1503,18 @@ end1:
         TextOut(0, 3, ALIGN_CENTER, "请检查打印机"); 
         TextOut(0, 4, ALIGN_CENTER, "打印失败");
         WaitKey(2000);
+
+        return ERROR;
+end2:  
+
+        FailBeep(); 
+        ClearLine(1, 9);
+        TextOut(0, 3, ALIGN_CENTER, "电量不足"); 
+        TextOut(0, 4, ALIGN_CENTER, "无法执行打印");
+        WaitKey(2000);
+
+        return ERROR;
+
 normal:
     } else {
         Clear();
@@ -1490,6 +1546,7 @@ void query24h(void)
     trade_num = SplitStr(result24h,trade_ptr,"|");
 
     pthread_mutex_lock(&prmutex);
+START_PRINT:
     if(CheckPrinter() != TRUE) {
         printf("the printer is not working well!\n");
         pthread_mutex_unlock(&prmutex);
@@ -1500,7 +1557,13 @@ void query24h(void)
     SetPrintIndent(0);
     SetPrintFont(24);
 
+#ifdef ALIPAY_GOLDENLAKE
     strcpy(PrintBuff,"北京金湖餐饮有限公司金湖环贸店");
+#endif
+#ifdef ALIPAY_JIUYI
+    strcpy(PrintBuff,"北京九亿升辉餐饮管理有限公司");
+#endif
+
     FillPrintBuff(PrintBuff);	   
     GetDateTime(&tTime);
     sprintf(pos_date,"%s%s-%s-%s",tTime.century,tTime.year,tTime.month,tTime.day);
@@ -1517,7 +1580,12 @@ void query24h(void)
     ret = StartPrint();
     DebugOut("print error code:[%d]\n", ret);
     if(ret != 0) {   
-        goto end1;
+        if(ret == -1)
+            goto START_PRINT;
+        else if(ret == -2)
+            goto end2;
+        else if(ret == -3)
+            goto end1;
     }
     ClearPrintBuff();
     memset(PrintBuff,0,sizeof(PrintBuff));
@@ -1559,7 +1627,12 @@ void query24h(void)
             ret = StartPrint();
             DebugOut("print error code:[%d]\n", ret);
             if(ret != 0) {   
-                goto end1;
+                if(ret == -1) 
+                    goto START_PRINT;
+                else if(ret == -2)
+                    goto end2;
+                else if(ret == -3)
+                    goto end1;
             }
             ClearPrintBuff();
             memset(PrintBuff,0,sizeof(PrintBuff));
@@ -1572,8 +1645,14 @@ void query24h(void)
     FillPrintBuff(PrintBuff);
     ret = StartPrint();
     DebugOut("print error code:[%d]\n", ret);
+    printf("print error code:[%d]\n", ret);
     if(ret != 0) {   
-        goto end1;
+        if(ret == -1)
+            goto START_PRINT;
+        else if(ret == -2)
+             goto end2;
+        else if(ret == -3)
+             goto end1;
     }
     ClearPrintBuff();
     memset(PrintBuff,0,sizeof(PrintBuff));
@@ -1596,8 +1675,14 @@ void query24h(void)
     ret = StartPrint();
     pthread_mutex_unlock(&prmutex);
     DebugOut("print error code:[%d]\n", ret);
-    if(ret != 0) {   
-        goto end1;
+    if(ret != 0) 
+    {
+        if(ret == -1)
+            goto START_PRINT;
+        else if(ret == -2)
+             goto end2;
+        else if(ret == -3)
+             goto end1;
     }   
     goto normal;
 end1:  
@@ -1606,6 +1691,18 @@ end1:
     TextOut(0, 3, ALIGN_CENTER, "请检查打印机"); 
     TextOut(0, 4, ALIGN_CENTER, "打印失败");
     WaitKey(2000);
+    
+    return ERROR;
+end2:  
+
+    FailBeep(); 
+    ClearLine(1, 9);
+    TextOut(0, 3, ALIGN_CENTER, "电量不足"); 
+    TextOut(0, 4, ALIGN_CENTER, "无法执行打印"); 
+    WaitKey(2000);
+
+    return ERROR;
+
 normal:
 }
 

@@ -18,11 +18,7 @@ int  generator_qrcode_to_bmp(int out, char* price)
     // code from d620d start
     int ret;
     int enc_mode;
-#if 0
-    FILE *fp;
-    int i;
-    char buffer[30];
-#endif
+
     // code from d620d end
 
 
@@ -30,38 +26,8 @@ int  generator_qrcode_to_bmp(int out, char* price)
     char ticket_number[13]={0};
     char client_number[21]={0};
 
-#if 0
-    //strcpy(qrpay_info.imsi,"460006922139942");
-    //strcpy(qrpay_info.imsi,"460024104033474");
-    if (pos_imsi[0] == '\0'){
-        /* get imsi from config.tx */
-        fp = fopen("/usr/local/config.txt","r");
-        if(fp == NULL)
-        {
-            printf("couldn't open config.txt\n");
-            return;
-        }
-        if( fgets(buffer, 30, fp) == NULL )
-        {
-            printf("Error reading config\n");
-            fclose(fp);
-            return ;
-        }
-        for (i=0; i<30; i++) {
-            if(buffer[i] == '\n') {
-                buffer[i] = '\0';
-                break;
-            }
-        }
-        fclose(fp);
-        /* copy after IMSI: */
-        strcpy(pos_imsi,&buffer[5]);
-        printf("the pos imsi buffer string is %s\n",pos_imsi);
-    }
-    strcpy(qrpay_info.imsi,pos_imsi);
-#else
-    getIMSIconfig();
-#endif
+
+getIMSIconfig();
     strcpy(qrpay_info.order_key,"11");
     /* Time for D620D Pos */
     GetDateTime(&tTime);
