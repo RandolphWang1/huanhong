@@ -758,7 +758,7 @@ normal:
 #endif
             case KEY_1:
                 //this part should think about more
-                //if (system("ifconfig eth0") != 0) 
+                if (system("ifconfig eth0") != 0) 
                     if (system("ifconfig ppp0") != 0) {
                         Clear(); 
                         TextOut(0, 5, ALIGN_CENTER, "稍等，正在初始化移动网络...");
@@ -985,15 +985,19 @@ int SetMoney()
     printf("\nafter:%s\n", buff);
     pthread_mutex_lock(&prmutex);
     print_logo();
-    generator_qrcode_to_bmp(1,buff);
-	system(buff);	 
+    ret = generator_qrcode_to_bmp(1,buff);
+	//system(buff);	 
 
     OkBeep();
     Clear();
     SetScrFont(FONT20, WHITE);
-    //TextOut(2, 4, ALIGN_CENTER, "input money OK!");
-    TextOut(2, 4, ALIGN_CENTER, "稍等，正在输出二维码...");
-    printTail(buff);
+    if(ret == 1)
+        TextOut(2, 4, ALIGN_CENTER, "链接支付宝失败，请检查网络");
+    else {
+        //TextOut(2, 4, ALIGN_CENTER, "input money OK!");
+        TextOut(2, 4, ALIGN_CENTER, "稍等，正在输出二维码...");
+        printTail(buff);
+    }
     pthread_mutex_unlock(&prmutex);
     WaitKey(1000);
     return OK;

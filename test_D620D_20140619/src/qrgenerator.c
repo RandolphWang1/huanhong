@@ -58,7 +58,7 @@ getIMSIconfig();
     /* print the qr code from alipay */
     alipay_main((struct qr_result*)szQrcodeString, &qrpay_info, ALI_PRECREATE_ORDER);
     szSourceString = szQrcodeString;
-    if(szQrcodeString) {
+    if(szQrcodeString[0] != '\0') {
         /* print QR code on D620D */
         //ret = PrintQR(10, 1, 2, szSourceString, 5, 5);
         //ret = PrintQR(6, 1, 2, szSourceString, 5, 7);
@@ -67,8 +67,10 @@ getIMSIconfig();
         {
             printf("the PrintQR return value is %d\n",ret);
         }
+    } else {
+        ret = 1;
     }
-    return 0;
+    return ret;
 }
 
 //user don't need to input imsi and year month date, but hour,minutes,and serial no is needed,
